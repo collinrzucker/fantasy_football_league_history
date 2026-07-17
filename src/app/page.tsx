@@ -1,6 +1,6 @@
 import { getCareerRecords, getManagerMap, getSeasons } from "@/lib/data";
+import { firstName } from "@/lib/format";
 import { StatTile } from "@/components/StatTile";
-import { CareerWinPctChart } from "@/components/CareerWinPctChart";
 import { CareerRecordsTable } from "@/components/CareerRecordsTable";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
   const latestSeason = completeSeasons[completeSeasons.length - 1];
   const reigningChampion = latestSeason
     ? managerMap.get(latestSeason.champion!)?.fullName
-    : "—";
+    : undefined;
   const activeManagerCount = Array.from(managerMap.values()).filter(
     (m) => m.active
   ).length;
@@ -33,20 +33,20 @@ export default function Home() {
         <StatTile label="Active managers" value={String(activeManagerCount)} />
         <StatTile
           label="Reigning champion"
-          value={reigningChampion ?? "—"}
+          value={reigningChampion ? firstName(reigningChampion) : "—"}
           detail={String(latestSeason?.year)}
         />
         <StatTile
           label="Most titles"
-          value={managerMap.get(mostTitles.managerId)?.fullName ?? "—"}
+          value={
+            managerMap.get(mostTitles.managerId)
+              ? firstName(managerMap.get(mostTitles.managerId)!.fullName)
+              : "—"
+          }
           detail={`${mostTitles.championships} championship${
             mostTitles.championships === 1 ? "" : "s"
           }`}
         />
-      </section>
-
-      <section>
-        <CareerWinPctChart records={records} managerMap={managerMapObj} />
       </section>
 
       <section className="flex flex-col gap-3">
