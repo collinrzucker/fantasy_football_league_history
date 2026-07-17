@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { TabNav } from "@/components/TabNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -36,6 +37,7 @@ export default function RootLayout({
             <p className="text-sm text-text-muted">League history since 2012</p>
           </div>
         </header>
+        <TabNav />
         <main className="flex-1">
           <div className="mx-auto max-w-5xl px-6 py-8">{children}</div>
         </main>

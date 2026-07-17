@@ -5,8 +5,10 @@ import type {
   Season,
   KeeperYear,
   DraftYear,
+  DraftAverage,
   CareerRecord,
   ManagerId,
+  KeeperWithStreak,
 } from "@/types/league";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -36,6 +38,56 @@ export function getDraftYears(): DraftYear[] {
   return readJson<DraftYear[]>("draftOrder.json").sort(
     (a, b) => a.year - b.year
   );
+}
+
+export interface KeeperYearWithStreaks {
+  year: number;
+  keepers: KeeperWithStreak[];
+}
+
+/**
+ * Streak = consecutive years (including this one) the same manager has kept
+ * the same player. 2 = one keep left; 3+ = cannot be kept again.
+ */
+export function getKeepersWithStreaks(): KeeperYearWithStreaks[] {
+  const years = getKeeperYears();
+  let previousStreaks = new Map<string, number>();
+
+  return years.map((yearEntry) => {
+    const currentStreaks = new Map<string, number>();
+    const keepers: KeeperWithStreak[] = yearEntry.keepers.map((keeper) => {
+      const key = `${keeper.managerId}|${keeper.player}`;
+      const streak = (previousStreaks.get(key) ?? 0) + 1;
+      currentStreaks.set(key, streak);
+      return { ...keeper, streak };
+    });
+    previousStreaks = currentStreaks;
+    return { year: yearEntry.year, keepers };
+  });
+}
+
+export function getDraftAverages(): DraftAverage[] {
+  const draftYears = getDraftYears(); // ascending
+  const managers = getManagers();
+  const recent = (n: number) => draftYears.slice(-n);
+
+  function average(years: DraftYear[], managerId: ManagerId): number | null {
+    const picks = years
+      .map((y) => y.order.find((o) => o.managerId === managerId)?.pick)
+      .filter((p): p is number => p !== undefined);
+    if (picks.length === 0) return null;
+    return picks.reduce((sum, p) => sum + p, 0) / picks.length;
+  }
+
+  return managers
+    .map((manager) => ({
+      managerId: manager.id,
+      allTime: average(draftYears, manager.id),
+      last3: average(recent(3), manager.id),
+      last5: average(recent(5), manager.id),
+    }))
+    .filter((row) => row.allTime !== null)
+    .map((row) => ({ ...row, allTime: row.allTime as number }));
 }
 
 export function getCareerRecords(): CareerRecord[] {

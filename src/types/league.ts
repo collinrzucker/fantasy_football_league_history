@@ -44,6 +44,18 @@ export interface DraftYear {
   order: DraftPick[];
 }
 
+export interface KeeperWithStreak extends Keeper {
+  /** consecutive years (including this one) this manager has kept this player */
+  streak: number;
+}
+
+export interface DraftAverage {
+  managerId: ManagerId;
+  allTime: number;
+  last3: number | null;
+  last5: number | null;
+}
+
 export interface CareerRecord {
   managerId: ManagerId;
   wins: number;
