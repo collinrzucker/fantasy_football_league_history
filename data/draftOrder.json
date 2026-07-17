@@ -1,0 +1,110 @@
+[
+  { "year": 2017, "order": [
+    { "managerId": "steve", "pick": 1 },
+    { "managerId": "greg", "pick": 2 },
+    { "managerId": "chris", "pick": 3 },
+    { "managerId": "sam", "pick": 4 },
+    { "managerId": "andy", "pick": 5 },
+    { "managerId": "john", "pick": 6 },
+    { "managerId": "conor", "pick": 7 },
+    { "managerId": "matt", "pick": 8 },
+    { "managerId": "owen", "pick": 9 },
+    { "managerId": "collin", "pick": 10 }
+  ] },
+  { "year": 2018, "order": [
+    { "managerId": "andy", "pick": 1 },
+    { "managerId": "chris", "pick": 2 },
+    { "managerId": "john", "pick": 3 },
+    { "managerId": "steve", "pick": 4 },
+    { "managerId": "owen", "pick": 5 },
+    { "managerId": "sam", "pick": 6 },
+    { "managerId": "matt", "pick": 7 },
+    { "managerId": "conor", "pick": 8 },
+    { "managerId": "collin", "pick": 9 },
+    { "managerId": "greg", "pick": 10 }
+  ] },
+  { "year": 2019, "order": [
+    { "managerId": "matt", "pick": 1 },
+    { "managerId": "andy", "pick": 2 },
+    { "managerId": "owen", "pick": 3 },
+    { "managerId": "greg", "pick": 4 },
+    { "managerId": "steve", "pick": 5 },
+    { "managerId": "john", "pick": 6 },
+    { "managerId": "chris", "pick": 7 },
+    { "managerId": "conor", "pick": 8 },
+    { "managerId": "sam", "pick": 9 },
+    { "managerId": "collin", "pick": 10 }
+  ] },
+  { "year": 2020, "order": [
+    { "managerId": "collin", "pick": 1 },
+    { "managerId": "andy", "pick": 2 },
+    { "managerId": "owen", "pick": 3 },
+    { "managerId": "greg", "pick": 4 },
+    { "managerId": "steve", "pick": 5 },
+    { "managerId": "sam", "pick": 6 },
+    { "managerId": "matt", "pick": 7 },
+    { "managerId": "john", "pick": 8 },
+    { "managerId": "chris", "pick": 9 },
+    { "managerId": "conor", "pick": 10 }
+  ] },
+  { "year": 2021, "order": [
+    { "managerId": "conor", "pick": 1 },
+    { "managerId": "greg", "pick": 2 },
+    { "managerId": "john", "pick": 3 },
+    { "managerId": "chris", "pick": 4 },
+    { "managerId": "owen", "pick": 5 },
+    { "managerId": "collin", "pick": 6 },
+    { "managerId": "sam", "pick": 7 },
+    { "managerId": "matt", "pick": 8 },
+    { "managerId": "andy", "pick": 9 },
+    { "managerId": "steve", "pick": 10 }
+  ] },
+  { "year": 2022, "order": [
+    { "managerId": "chris", "pick": 1 },
+    { "managerId": "owen", "pick": 2 },
+    { "managerId": "steve", "pick": 3 },
+    { "managerId": "conor", "pick": 4 },
+    { "managerId": "matt", "pick": 5 },
+    { "managerId": "sam", "pick": 6 },
+    { "managerId": "collin", "pick": 7 },
+    { "managerId": "john", "pick": 8 },
+    { "managerId": "andy", "pick": 9 },
+    { "managerId": "greg", "pick": 10 }
+  ] },
+  { "year": 2023, "order": [
+    { "managerId": "andy", "pick": 1 },
+    { "managerId": "sam", "pick": 2 },
+    { "managerId": "owen", "pick": 3 },
+    { "managerId": "greg", "pick": 4 },
+    { "managerId": "matt", "pick": 5 },
+    { "managerId": "collin", "pick": 6 },
+    { "managerId": "steve", "pick": 7 },
+    { "managerId": "chris", "pick": 8 },
+    { "managerId": "john", "pick": 9 },
+    { "managerId": "conor", "pick": 10 }
+  ] },
+  { "year": 2024, "order": [
+    { "managerId": "collin", "pick": 1 },
+    { "managerId": "owen", "pick": 2 },
+    { "managerId": "sam", "pick": 3 },
+    { "managerId": "andy", "pick": 4 },
+    { "managerId": "chris", "pick": 5 },
+    { "managerId": "steve", "pick": 6 },
+    { "managerId": "matt", "pick": 7 },
+    { "managerId": "john", "pick": 8 },
+    { "managerId": "conor", "pick": 9 },
+    { "managerId": "greg", "pick": 10 }
+  ] },
+  { "year": 2025, "order": [
+    { "managerId": "sam", "pick": 1 },
+    { "managerId": "greg", "pick": 2 },
+    { "managerId": "chris", "pick": 3 },
+    { "managerId": "conor", "pick": 4 },
+    { "managerId": "steve", "pick": 5 },
+    { "managerId": "john", "pick": 6 },
+    { "managerId": "andy", "pick": 7 },
+    { "managerId": "collin", "pick": 8 },
+    { "managerId": "matt", "pick": 9 },
+    { "managerId": "owen", "pick": 10 }
+  ] }
+]

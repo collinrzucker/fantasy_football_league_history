@@ -1,0 +1,266 @@
+[
+  {
+    "year": 2012,
+    "complete": true,
+    "champion": "john",
+    "runnerUp": "greg",
+    "standings": [
+      { "rank": 1, "managerId": "john", "wins": 9, "losses": 5 },
+      { "rank": 2, "managerId": "greg", "wins": 8, "losses": 6 },
+      { "rank": 3, "managerId": "conor", "wins": 9, "losses": 5 },
+      { "rank": 4, "managerId": "sam", "wins": 10, "losses": 4 },
+      { "rank": 5, "managerId": "jamie", "wins": 7, "losses": 7 },
+      { "rank": 6, "managerId": "collin", "wins": 4, "losses": 10 },
+      { "rank": 7, "managerId": "daniel", "wins": 6, "losses": 8 },
+      { "rank": 8, "managerId": "matt", "wins": 3, "losses": 11 }
+    ]
+  },
+  {
+    "year": 2013,
+    "complete": true,
+    "champion": "jamie",
+    "runnerUp": "greg",
+    "standings": [
+      { "rank": 1, "managerId": "jamie", "wins": 6, "losses": 7 },
+      { "rank": 2, "managerId": "greg", "wins": 6, "losses": 7 },
+      { "rank": 3, "managerId": "john", "wins": 10, "losses": 3 },
+      { "rank": 4, "managerId": "daniel", "wins": 7, "losses": 6 },
+      { "rank": 5, "managerId": "collin", "wins": 6, "losses": 7 },
+      { "rank": 6, "managerId": "conor", "wins": 6, "losses": 7 },
+      { "rank": 7, "managerId": "sam", "wins": 5, "losses": 8 },
+      { "rank": 8, "managerId": "matt", "wins": 6, "losses": 7 }
+    ]
+  },
+  {
+    "year": 2014,
+    "complete": true,
+    "champion": "conor",
+    "runnerUp": "collin",
+    "standings": [
+      { "rank": 1, "managerId": "conor", "wins": 8, "losses": 5 },
+      { "rank": 2, "managerId": "collin", "wins": 9, "losses": 4 },
+      { "rank": 3, "managerId": "matt", "wins": 8, "losses": 5 },
+      { "rank": 4, "managerId": "daniel", "wins": 8, "losses": 5 },
+      { "rank": 5, "managerId": "jamie", "wins": 4, "losses": 9 },
+      { "rank": 6, "managerId": "greg", "wins": 7, "losses": 6 },
+      { "rank": 7, "managerId": "sam", "wins": 4, "losses": 9 },
+      { "rank": 8, "managerId": "john", "wins": 4, "losses": 9 }
+    ]
+  },
+  {
+    "year": 2015,
+    "complete": true,
+    "champion": "john",
+    "runnerUp": "andy",
+    "standings": [
+      { "rank": 1, "managerId": "john", "wins": 8, "losses": 5 },
+      { "rank": 2, "managerId": "andy", "wins": 8, "losses": 5 },
+      { "rank": 3, "managerId": "greg", "wins": 10, "losses": 3 },
+      { "rank": 4, "managerId": "jamie", "wins": 7, "losses": 6 },
+      { "rank": 5, "managerId": "steve", "wins": 7, "losses": 6 },
+      { "rank": 6, "managerId": "chris", "wins": 8, "losses": 5 },
+      { "rank": 7, "managerId": "matt", "wins": 2, "losses": 11 },
+      { "rank": 8, "managerId": "collin", "wins": 3, "losses": 10 },
+      { "rank": 9, "managerId": "conor", "wins": 5, "losses": 8 },
+      { "rank": 10, "managerId": "sam", "wins": 7, "losses": 6 }
+    ]
+  },
+  {
+    "year": 2016,
+    "complete": true,
+    "champion": "steve",
+    "runnerUp": "greg",
+    "standings": [
+      { "rank": 1, "managerId": "steve", "wins": 10, "losses": 3 },
+      { "rank": 2, "managerId": "greg", "wins": 9, "losses": 4 },
+      { "rank": 3, "managerId": "andy", "wins": 6, "losses": 7 },
+      { "rank": 4, "managerId": "collin", "wins": 8, "losses": 5 },
+      { "rank": 5, "managerId": "matt", "wins": 7, "losses": 6 },
+      { "rank": 6, "managerId": "john", "wins": 6, "losses": 7 },
+      { "rank": 7, "managerId": "sam", "wins": 5, "losses": 8 },
+      { "rank": 8, "managerId": "conor", "wins": 5, "losses": 8 },
+      { "rank": 9, "managerId": "jamie", "wins": 5, "losses": 8 },
+      { "rank": 10, "managerId": "chris", "wins": 4, "losses": 9 }
+    ]
+  },
+  {
+    "year": 2017,
+    "complete": true,
+    "champion": "andy",
+    "runnerUp": "collin",
+    "standings": [
+      { "rank": 1, "managerId": "andy", "wins": 8, "losses": 5 },
+      { "rank": 2, "managerId": "collin", "wins": 7, "losses": 6 },
+      { "rank": 3, "managerId": "chris", "wins": 9, "losses": 4 },
+      { "rank": 4, "managerId": "conor", "wins": 7, "losses": 6 },
+      { "rank": 5, "managerId": "matt", "wins": 7, "losses": 6 },
+      { "rank": 6, "managerId": "sam", "wins": 7, "losses": 6 },
+      { "rank": 7, "managerId": "greg", "wins": 6, "losses": 7 },
+      { "rank": 8, "managerId": "owen", "wins": 5, "losses": 8 },
+      { "rank": 9, "managerId": "john", "wins": 4, "losses": 9 },
+      { "rank": 10, "managerId": "steve", "wins": 5, "losses": 8 }
+    ]
+  },
+  {
+    "year": 2018,
+    "complete": true,
+    "champion": "matt",
+    "runnerUp": "greg",
+    "standings": [
+      { "rank": 1, "managerId": "matt", "wins": 7, "losses": 6 },
+      { "rank": 2, "managerId": "greg", "wins": 7, "losses": 6 },
+      { "rank": 3, "managerId": "john", "wins": 7, "losses": 6 },
+      { "rank": 4, "managerId": "andy", "wins": 8, "losses": 5 },
+      { "rank": 5, "managerId": "collin", "wins": 7, "losses": 6 },
+      { "rank": 6, "managerId": "sam", "wins": 7, "losses": 6 },
+      { "rank": 7, "managerId": "conor", "wins": 4, "losses": 9 },
+      { "rank": 8, "managerId": "owen", "wins": 6, "losses": 7 },
+      { "rank": 9, "managerId": "chris", "wins": 6, "losses": 7 },
+      { "rank": 10, "managerId": "steve", "wins": 6, "losses": 7 }
+    ]
+  },
+  {
+    "year": 2019,
+    "complete": true,
+    "champion": "sam",
+    "runnerUp": "andy",
+    "standings": [
+      { "rank": 1, "managerId": "sam", "wins": 9, "losses": 4 },
+      { "rank": 2, "managerId": "andy", "wins": 9, "losses": 4 },
+      { "rank": 3, "managerId": "collin", "wins": 7, "losses": 6 },
+      { "rank": 4, "managerId": "john", "wins": 6, "losses": 7 },
+      { "rank": 5, "managerId": "matt", "wins": 6, "losses": 7 },
+      { "rank": 6, "managerId": "steve", "wins": 8, "losses": 5 },
+      { "rank": 7, "managerId": "chris", "wins": 5, "losses": 8 },
+      { "rank": 8, "managerId": "owen", "wins": 5, "losses": 8 },
+      { "rank": 9, "managerId": "greg", "wins": 5, "losses": 8 },
+      { "rank": 10, "managerId": "conor", "wins": 5, "losses": 8 }
+    ]
+  },
+  {
+    "year": 2020,
+    "complete": true,
+    "champion": "john",
+    "runnerUp": "andy",
+    "standings": [
+      { "rank": 1, "managerId": "john", "wins": 11, "losses": 2 },
+      { "rank": 2, "managerId": "andy", "wins": 6, "losses": 7 },
+      { "rank": 3, "managerId": "greg", "wins": 9, "losses": 4 },
+      { "rank": 4, "managerId": "matt", "wins": 7, "losses": 6 },
+      { "rank": 5, "managerId": "steve", "wins": 7, "losses": 6 },
+      { "rank": 6, "managerId": "sam", "wins": 8, "losses": 5 },
+      { "rank": 7, "managerId": "owen", "wins": 3, "losses": 10 },
+      { "rank": 8, "managerId": "conor", "wins": 5, "losses": 8 },
+      { "rank": 9, "managerId": "collin", "wins": 5, "losses": 8 },
+      { "rank": 10, "managerId": "chris", "wins": 4, "losses": 9 }
+    ]
+  },
+  {
+    "year": 2021,
+    "complete": true,
+    "champion": "conor",
+    "runnerUp": "steve",
+    "standings": [
+      { "rank": 1, "managerId": "conor", "wins": 9, "losses": 5 },
+      { "rank": 2, "managerId": "steve", "wins": 7, "losses": 7 },
+      { "rank": 3, "managerId": "matt", "wins": 10, "losses": 4 },
+      { "rank": 4, "managerId": "sam", "wins": 9, "losses": 5 },
+      { "rank": 5, "managerId": "chris", "wins": 7, "losses": 7 },
+      { "rank": 6, "managerId": "andy", "wins": 8, "losses": 6 },
+      { "rank": 7, "managerId": "greg", "wins": 7, "losses": 7 },
+      { "rank": 8, "managerId": "john", "wins": 4, "losses": 10 },
+      { "rank": 9, "managerId": "owen", "wins": 6, "losses": 8 },
+      { "rank": 10, "managerId": "collin", "wins": 3, "losses": 11 }
+    ]
+  },
+  {
+    "year": 2022,
+    "complete": true,
+    "champion": "steve",
+    "runnerUp": "collin",
+    "standings": [
+      { "rank": 1, "managerId": "steve", "wins": 7, "losses": 7 },
+      { "rank": 2, "managerId": "collin", "wins": 11, "losses": 3 },
+      { "rank": 3, "managerId": "owen", "wins": 10, "losses": 4 },
+      { "rank": 4, "managerId": "chris", "wins": 9, "losses": 5 },
+      { "rank": 5, "managerId": "sam", "wins": 9, "losses": 5 },
+      { "rank": 6, "managerId": "john", "wins": 8, "losses": 6 },
+      { "rank": 7, "managerId": "conor", "wins": 4, "losses": 10 },
+      { "rank": 8, "managerId": "greg", "wins": 3, "losses": 11 },
+      { "rank": 9, "managerId": "matt", "wins": 4, "losses": 10 },
+      { "rank": 10, "managerId": "andy", "wins": 5, "losses": 9 }
+    ]
+  },
+  {
+    "year": 2023,
+    "complete": true,
+    "champion": "steve",
+    "runnerUp": "matt",
+    "standings": [
+      { "rank": 1, "managerId": "steve", "wins": 12, "losses": 2 },
+      { "rank": 2, "managerId": "matt", "wins": 8, "losses": 6 },
+      { "rank": 3, "managerId": "conor", "wins": 7, "losses": 7 },
+      { "rank": 4, "managerId": "sam", "wins": 10, "losses": 4 },
+      { "rank": 5, "managerId": "collin", "wins": 6, "losses": 8 },
+      { "rank": 6, "managerId": "owen", "wins": 7, "losses": 7 },
+      { "rank": 7, "managerId": "john", "wins": 6, "losses": 8 },
+      { "rank": 8, "managerId": "chris", "wins": 2, "losses": 12 },
+      { "rank": 9, "managerId": "greg", "wins": 6, "losses": 8 },
+      { "rank": 10, "managerId": "andy", "wins": 6, "losses": 8 }
+    ]
+  },
+  {
+    "year": 2024,
+    "complete": true,
+    "champion": "john",
+    "runnerUp": "andy",
+    "standings": [
+      { "rank": 1, "managerId": "john", "wins": 8, "losses": 6 },
+      { "rank": 2, "managerId": "andy", "wins": 9, "losses": 5 },
+      { "rank": 3, "managerId": "conor", "wins": 10, "losses": 4 },
+      { "rank": 4, "managerId": "chris", "wins": 9, "losses": 5 },
+      { "rank": 5, "managerId": "owen", "wins": 8, "losses": 6 },
+      { "rank": 6, "managerId": "sam", "wins": 6, "losses": 8 },
+      { "rank": 7, "managerId": "matt", "wins": 6, "losses": 8 },
+      { "rank": 8, "managerId": "steve", "wins": 5, "losses": 9 },
+      { "rank": 9, "managerId": "greg", "wins": 4, "losses": 10 },
+      { "rank": 10, "managerId": "collin", "wins": 5, "losses": 9 }
+    ]
+  },
+  {
+    "year": 2025,
+    "complete": true,
+    "champion": "sam",
+    "runnerUp": "owen",
+    "standings": [
+      { "rank": 1, "managerId": "sam", "wins": 8, "losses": 6 },
+      { "rank": 2, "managerId": "owen", "wins": 10, "losses": 4 },
+      { "rank": 3, "managerId": "greg", "wins": 11, "losses": 3 },
+      { "rank": 4, "managerId": "chris", "wins": 8, "losses": 6 },
+      { "rank": 5, "managerId": "andy", "wins": 8, "losses": 6 },
+      { "rank": 6, "managerId": "conor", "wins": 9, "losses": 5 },
+      { "rank": 7, "managerId": "collin", "wins": 5, "losses": 9 },
+      { "rank": 8, "managerId": "matt", "wins": 2, "losses": 12 },
+      { "rank": 9, "managerId": "steve", "wins": 6, "losses": 8 },
+      { "rank": 10, "managerId": "john", "wins": 3, "losses": 11 }
+    ]
+  },
+  {
+    "year": 2026,
+    "complete": false,
+    "champion": null,
+    "runnerUp": null,
+    "standings": [
+      { "rank": 1, "managerId": "andy", "wins": null, "losses": null },
+      { "rank": 2, "managerId": "chris", "wins": null, "losses": null },
+      { "rank": 3, "managerId": "conor", "wins": null, "losses": null },
+      { "rank": 4, "managerId": "collin", "wins": null, "losses": null },
+      { "rank": 5, "managerId": "greg", "wins": null, "losses": null },
+      { "rank": 6, "managerId": "john", "wins": null, "losses": null },
+      { "rank": 7, "managerId": "matt", "wins": null, "losses": null },
+      { "rank": 8, "managerId": "owen", "wins": null, "losses": null },
+      { "rank": 9, "managerId": "sam", "wins": null, "losses": null },
+      { "rank": 10, "managerId": "steve", "wins": null, "losses": null }
+    ]
+  }
+]

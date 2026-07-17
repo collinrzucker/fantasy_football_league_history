@@ -1,0 +1,14 @@
+[
+  { "id": "sam", "fullName": "Sam Bauman", "active": true },
+  { "id": "greg", "fullName": "Greg Gheewalla", "active": true },
+  { "id": "john", "fullName": "John Wahrhaftig", "active": true },
+  { "id": "conor", "fullName": "Conor Dunleavy", "active": true },
+  { "id": "collin", "fullName": "Collin Zucker", "active": true },
+  { "id": "matt", "fullName": "Matt Bernstein", "active": true },
+  { "id": "andy", "fullName": "Andy Gheewalla", "active": true },
+  { "id": "steve", "fullName": "Steve Wahrhaftig", "active": true },
+  { "id": "chris", "fullName": "Chris Wahrhaftig", "active": true },
+  { "id": "owen", "fullName": "Owen Zucker", "active": true },
+  { "id": "jamie", "fullName": "Jamie Horowitz", "active": false },
+  { "id": "daniel", "fullName": "Daniel Nathan", "active": false }
+]

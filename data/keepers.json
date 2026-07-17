@@ -1,0 +1,76 @@
+[
+  {
+    "year": 2021,
+    "keepers": [
+      { "managerId": "andy", "player": "Ryan Tannehill", "roundLost": 9 },
+      { "managerId": "collin", "player": "Terry McLaurin", "roundLost": 6 },
+      { "managerId": "conor", "player": "Mike Gesicki", "roundLost": 13 },
+      { "managerId": "greg", "player": "Robert Woods", "roundLost": 6 },
+      { "managerId": "john", "player": "Stefon Diggs", "roundLost": 7 },
+      { "managerId": "matt", "player": "Jonathan Taylor", "roundLost": 4 },
+      { "managerId": "owen", "player": "JK Dobbins", "roundLost": 9 },
+      { "managerId": "sam", "player": "CeeDee Lamb", "roundLost": 11 },
+      { "managerId": "steve", "player": "David Montgomery", "roundLost": 6 }
+    ]
+  },
+  {
+    "year": 2022,
+    "keepers": [
+      { "managerId": "andy", "player": "Michael Pittman", "roundLost": 10 },
+      { "managerId": "chris", "player": "James Conner", "roundLost": 9 },
+      { "managerId": "collin", "player": "Jaylen Waddle", "roundLost": 11 },
+      { "managerId": "conor", "player": "Jamarr Chase", "roundLost": 8 },
+      { "managerId": "greg", "player": "Marquise Brown", "roundLost": 15 },
+      { "managerId": "john", "player": "Stefon Diggs", "roundLost": 6 },
+      { "managerId": "matt", "player": "DeAndre Swift", "roundLost": 5 },
+      { "managerId": "owen", "player": "Mike Williams", "roundLost": 10 },
+      { "managerId": "sam", "player": "CeeDee Lamb", "roundLost": 10 },
+      { "managerId": "steve", "player": "Deebo Samuel", "roundLost": 9 }
+    ]
+  },
+  {
+    "year": 2023,
+    "keepers": [
+      { "managerId": "andy", "player": "Rhamondre Stevenson", "roundLost": 7 },
+      { "managerId": "chris", "player": "Tua Tagovailoa", "roundLost": 10 },
+      { "managerId": "collin", "player": "Tony Pollard", "roundLost": 8 },
+      { "managerId": "conor", "player": "Jamarr Chase", "roundLost": 7 },
+      { "managerId": "greg", "player": "Travis Etienne Jr.", "roundLost": 5 },
+      { "managerId": "john", "player": "Justin Fields", "roundLost": 7 },
+      { "managerId": "matt", "player": "George Pickens", "roundLost": 12 },
+      { "managerId": "owen", "player": "Josh Jacobs", "roundLost": 7 },
+      { "managerId": "sam", "player": "CeeDee Lamb", "roundLost": 9 },
+      { "managerId": "steve", "player": "Deebo Samuel", "roundLost": 8 }
+    ]
+  },
+  {
+    "year": 2024,
+    "keepers": [
+      { "managerId": "andy", "player": "Dalton Kincaid", "roundLost": 12 },
+      { "managerId": "chris", "player": "Tua Tagovailoa", "roundLost": 9 },
+      { "managerId": "collin", "player": "Jordan Love", "roundLost": 5 },
+      { "managerId": "conor", "player": "De'Von Achane", "roundLost": 13 },
+      { "managerId": "greg", "player": "Brock Purdy", "roundLost": 15 },
+      { "managerId": "john", "player": "James Cook", "roundLost": 7 },
+      { "managerId": "matt", "player": "Jonathan Taylor", "roundLost": 7 },
+      { "managerId": "owen", "player": "Josh Jacobs", "roundLost": 6 },
+      { "managerId": "sam", "player": "Kyler Murray", "roundLost": 10 },
+      { "managerId": "steve", "player": "Breece Hall", "roundLost": 4 }
+    ]
+  },
+  {
+    "year": 2025,
+    "keepers": [
+      { "managerId": "andy", "player": "Drake Maye", "roundLost": 15 },
+      { "managerId": "chris", "player": "Bo Nix", "roundLost": 11 },
+      { "managerId": "collin", "player": "George Kittle", "roundLost": 9 },
+      { "managerId": "conor", "player": "De'Von Achane", "roundLost": 12 },
+      { "managerId": "greg", "player": "Brian Thomas Jr.", "roundLost": 9 },
+      { "managerId": "john", "player": "Baker Mayfield", "roundLost": 10 },
+      { "managerId": "matt", "player": "Chase Brown", "roundLost": 10 },
+      { "managerId": "owen", "player": "Brock Bowers", "roundLost": 7 },
+      { "managerId": "sam", "player": "Jaxon Smith-Njigba", "roundLost": 10 },
+      { "managerId": "steve", "player": "Terry McLaurin", "roundLost": 6 }
+    ]
+  }
+]
