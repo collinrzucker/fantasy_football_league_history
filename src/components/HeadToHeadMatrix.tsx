@@ -4,7 +4,7 @@ import type { HeadToHeadData } from "@/lib/data";
 interface HeadToHeadMatrixProps {
   data: HeadToHeadData;
   managerMap: Map<string, Manager>;
-  view: "record" | "pointsFor" | "pointsAgainst";
+  view: "record" | "pointsFor" | "pointsAgainst" | "margin";
 }
 
 const SEQ_STEPS = [
@@ -14,6 +14,27 @@ const SEQ_STEPS = [
   "var(--seq-400)",
   "var(--seq-500)",
 ];
+
+const DIVERGING_STEPS = [
+  "var(--div-red-500)",
+  "var(--div-red-300)",
+  "var(--div-red-100)",
+  "var(--div-mid)",
+  "var(--seq-100)",
+  "var(--seq-300)",
+  "var(--seq-500)",
+];
+
+function cellValue(
+  c: { pointsFor: number; pointsAgainst: number } | undefined,
+  games: number,
+  view: "pointsFor" | "pointsAgainst" | "margin"
+): number | null {
+  if (!c || games === 0) return null;
+  if (view === "pointsFor") return c.pointsFor / games;
+  if (view === "pointsAgainst") return c.pointsAgainst / games;
+  return (c.pointsFor - c.pointsAgainst) / games;
+}
 
 export function HeadToHeadMatrix({
   data,
@@ -29,20 +50,37 @@ export function HeadToHeadMatrix({
       for (const b of managerIds) {
         if (a === b) continue;
         const c = matrix[a]?.[b];
-        if (!c) continue;
-        const games = c.wins + c.losses;
-        if (games === 0) continue;
-        const value = (view === "pointsFor" ? c.pointsFor : c.pointsAgainst) / games;
+        const games = c ? c.wins + c.losses : 0;
+        const value = cellValue(c, games, view);
+        if (value === null) continue;
         min = Math.min(min, value);
         max = Math.max(max, value);
       }
     }
   }
+  const maxAbs = Math.max(Math.abs(min), Math.abs(max), 1);
 
   function heatIndex(value: number): number | undefined {
-    if (view === "record" || max === min) return undefined;
+    if (view === "record") return undefined;
+    if (view === "margin") {
+      const t = Math.max(-1, Math.min(1, value / maxAbs)); // -1..1
+      return Math.min(
+        DIVERGING_STEPS.length - 1,
+        Math.floor(((t + 1) / 2) * DIVERGING_STEPS.length)
+      );
+    }
+    if (max === min) return undefined;
     const t = (value - min) / (max - min);
     return Math.min(SEQ_STEPS.length - 1, Math.floor(t * SEQ_STEPS.length));
+  }
+
+  function heatColor(idx: number): string {
+    return view === "margin" ? DIVERGING_STEPS[idx] : SEQ_STEPS[idx];
+  }
+
+  function isDarkStep(idx: number): boolean {
+    if (view === "margin") return idx <= 1 || idx >= 5;
+    return idx >= 3;
   }
 
   return (
@@ -98,7 +136,8 @@ export function HeadToHeadMatrix({
                   );
                 }
 
-                if (games === 0) {
+                const value = cellValue(c, games, view);
+                if (value === null) {
                   return (
                     <td
                       key={colId}
@@ -108,18 +147,22 @@ export function HeadToHeadMatrix({
                     </td>
                   );
                 }
-                const value =
-                  (view === "pointsFor" ? c!.pointsFor : c!.pointsAgainst) / games;
                 const idx = heatIndex(value);
+                const label =
+                  view === "margin" && value > 0
+                    ? `+${value.toFixed(1)}`
+                    : value.toFixed(1);
                 return (
                   <td
                     key={colId}
                     className={`px-3 py-2.5 text-center tabular-nums ${
-                      idx !== undefined && idx >= 3 ? "text-white" : "text-text-primary"
+                      idx !== undefined && isDarkStep(idx)
+                        ? "text-white"
+                        : "text-text-primary"
                     }`}
-                    style={idx !== undefined ? { backgroundColor: SEQ_STEPS[idx] } : undefined}
+                    style={idx !== undefined ? { backgroundColor: heatColor(idx) } : undefined}
                   >
-                    {value.toFixed(1)}
+                    {label}
                   </td>
                 );
               })}

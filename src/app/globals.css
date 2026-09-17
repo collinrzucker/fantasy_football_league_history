@@ -21,6 +21,12 @@
   --seq-500: #256abf;
   --seq-600: #184f95;
 
+  /* diverging red arm (paired with the blue ramp above) + neutral midpoint */
+  --div-mid: #f0efec;
+  --div-red-100: #f6cfce;
+  --div-red-300: #e34948;
+  --div-red-500: #b83433;
+
   /* status (fixed, never themed) */
   --status-good: #0ca30c;
   --status-warning: #fab219;
@@ -46,6 +52,11 @@
   --color-seq-450: var(--seq-450);
   --color-seq-500: var(--seq-500);
   --color-seq-600: var(--seq-600);
+
+  --color-div-mid: var(--div-mid);
+  --color-div-red-100: var(--div-red-100);
+  --color-div-red-300: var(--div-red-300);
+  --color-div-red-500: var(--div-red-500);
 
   --color-status-good: var(--status-good);
   --color-status-warning: var(--status-warning);
@@ -76,6 +87,11 @@
     --seq-450: #2a78d6;
     --seq-500: #1c5cab;
     --seq-600: #104281;
+
+    --div-mid: #383835;
+    --div-red-100: #6b3634;
+    --div-red-300: #d55151;
+    --div-red-500: #e66767;
   }
 }
 
@@ -98,6 +114,11 @@
   --seq-450: #2a78d6;
   --seq-500: #1c5cab;
   --seq-600: #104281;
+
+  --div-mid: #383835;
+  --div-red-100: #6b3634;
+  --div-red-300: #d55151;
+  --div-red-500: #e66767;
 }
 
 body {

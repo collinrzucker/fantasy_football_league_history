@@ -17,6 +17,7 @@ const VIEW_OPTIONS = [
   { value: "record", label: "Record (W-L)" },
   { value: "pointsFor", label: "Avg points scored" },
   { value: "pointsAgainst", label: "Avg points allowed" },
+  { value: "margin", label: "Avg margin of victory" },
 ];
 
 export default async function HeadToHeadPage({
@@ -26,7 +27,9 @@ export default async function HeadToHeadPage({
   const filter: MatchupFilter =
     type === "regular" || type === "playoffs" ? type : "all";
   const activeView =
-    view === "pointsFor" || view === "pointsAgainst" ? view : "record";
+    view === "pointsFor" || view === "pointsAgainst" || view === "margin"
+      ? view
+      : "record";
 
   const managerMap = getManagerMap();
   const data = getHeadToHead(filter);
