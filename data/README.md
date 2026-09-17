@@ -24,9 +24,16 @@ so renames don't cascade.
   draft round given up to keep them).
 - **draftOrder.json** — one entry per draft year (2017+, earliest known).
   `order` is pick 1 → pick N.
+- **matchups.json** — week-by-week matchup results (`year`, `week`, `type`,
+  `home`/`away` managerIds, `homeScore`/`awayScore`). `type` is one of
+  `regular`, `quarterfinal`, `semifinal`, `championship`, `thirdPlace`,
+  `consolation`. Empty until filled in — see "Adding matchup history"
+  below. Powers the Head-to-Head tab once populated.
 
 ## Known gaps / not yet included
 
+- **Week-by-week matchups** — empty (`matchups.json` is `[]`). Fill in via
+  `data/matchups-template.csv` (see below).
 - **Team names** — intentionally omitted; they changed too often to be
   meaningful. Dashboard uses manager names throughout.
 - **Pre-2017 draft order** — not currently available.
@@ -34,6 +41,36 @@ so renames don't cascade.
 - **2026 season** — `complete: false`, standings list managers with no
   W/L yet (order in the source sheet for an in-progress season isn't a
   real rank).
+
+## Adding matchup history
+
+Yahoo doesn't offer a bulk export, so this is manual: for a season, open
+its "Matchup" or "Schedule" page on Yahoo (league → past seasons →
+Matchup by week) and copy each week's scores into a copy of
+`data/matchups-template.csv` (delete the two example rows first). Columns:
+
+```
+Season,Week,GameType,HomeManager,HomeScore,AwayManager,AwayScore
+```
+
+- `GameType`: `regular`, `quarterfinal`, `semifinal`, `championship`,
+  `thirdPlace`, or `consolation`.
+- `HomeManager`/`AwayManager`: first name or full name from
+  `managers.json` — the import script resolves either.
+
+Then run:
+
+```bash
+npm run import:matchups path/to/your-filled.csv
+```
+
+It validates every row (unknown manager names, bad game types, non-numeric
+scores, duplicate rows) and writes nothing if anything's wrong — errors are
+printed with line numbers so you can fix and re-run. Already-imported
+matchups (same year/week/pair) are skipped automatically, so it's safe to
+re-run with a CSV that has some overlap with what's already in
+`matchups.json`. You can do this incrementally, season by season — no need
+to fill in all 14 years at once.
 
 ## Adding a new season
 

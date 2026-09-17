@@ -66,3 +66,22 @@ export interface CareerRecord {
   championshipApps: number;
   championships: number;
 }
+
+export type MatchupType =
+  | "regular"
+  | "quarterfinal"
+  | "semifinal"
+  | "championship"
+  | "thirdPlace"
+  | "consolation";
+
+export interface Matchup {
+  year: number;
+  week: number;
+  type: MatchupType;
+  home: ManagerId;
+  homeScore: number;
+  away: ManagerId;
+  awayScore: number;
+}
+
