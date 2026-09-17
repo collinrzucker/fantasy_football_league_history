@@ -630,6 +630,51 @@
     "awayScore": 130.8
   },
   {
+    "year": 2024,
+    "week": 15,
+    "type": "firstround",
+    "home": "john",
+    "homeScore": 144.08,
+    "away": "owen",
+    "awayScore": 123.38
+  },
+  {
+    "year": 2024,
+    "week": 15,
+    "type": "firstround",
+    "home": "chris",
+    "homeScore": 148.74,
+    "away": "sam",
+    "awayScore": 112.86
+  },
+  {
+    "year": 2024,
+    "week": 16,
+    "type": "semifinal",
+    "home": "john",
+    "homeScore": 154.62,
+    "away": "conor",
+    "awayScore": 144.78
+  },
+  {
+    "year": 2024,
+    "week": 16,
+    "type": "semifinal",
+    "home": "andy",
+    "homeScore": 152.32,
+    "away": "chris",
+    "awayScore": 116.7
+  },
+  {
+    "year": 2024,
+    "week": 17,
+    "type": "championship",
+    "home": "john",
+    "homeScore": 158.56,
+    "away": "andy",
+    "awayScore": 134.56
+  },
+  {
     "year": 2025,
     "week": 1,
     "type": "regular",
