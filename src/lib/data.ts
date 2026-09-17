@@ -9,6 +9,7 @@ import type {
   CareerRecord,
   ManagerId,
   KeeperWithStreak,
+  Matchup,
 } from "@/types/league";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -88,6 +89,60 @@ export function getDraftAverages(): DraftAverage[] {
     }))
     .filter((row) => row.allTime !== null)
     .map((row) => ({ ...row, allTime: row.allTime as number }));
+}
+
+export function getMatchups(): Matchup[] {
+  return readJson<Matchup[]>("matchups.json").sort(
+    (a, b) => a.year - b.year || a.week - b.week
+  );
+}
+
+export interface HeadToHeadCell {
+  wins: number;
+  losses: number;
+}
+
+export interface HeadToHeadData {
+  managerIds: ManagerId[];
+  /** matrix[a][b] = a's record against b */
+  matrix: Record<ManagerId, Record<ManagerId, HeadToHeadCell>>;
+  seasonsCovered: number[];
+}
+
+export function getHeadToHead(): HeadToHeadData {
+  const matchups = getMatchups();
+  const managers = getManagers();
+  const matrix: HeadToHeadData["matrix"] = {};
+  const involvedIds = new Set<ManagerId>();
+  const seasonsCovered = new Set<number>();
+
+  for (const m of matchups) {
+    seasonsCovered.add(m.year);
+    involvedIds.add(m.home);
+    involvedIds.add(m.away);
+    matrix[m.home] ??= {};
+    matrix[m.away] ??= {};
+    matrix[m.home][m.away] ??= { wins: 0, losses: 0 };
+    matrix[m.away][m.home] ??= { wins: 0, losses: 0 };
+
+    if (m.homeScore > m.awayScore) {
+      matrix[m.home][m.away].wins += 1;
+      matrix[m.away][m.home].losses += 1;
+    } else {
+      matrix[m.away][m.home].wins += 1;
+      matrix[m.home][m.away].losses += 1;
+    }
+  }
+
+  const managerIds = managers
+    .filter((m) => involvedIds.has(m.id))
+    .map((m) => m.id);
+
+  return {
+    managerIds,
+    matrix,
+    seasonsCovered: [...seasonsCovered].sort((a, b) => a - b),
+  };
 }
 
 export function getCareerRecords(): CareerRecord[] {
