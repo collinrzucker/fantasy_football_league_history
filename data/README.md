@@ -56,6 +56,16 @@ themselves — become derivable from `matchups.json` instead of
 hand-maintained, which removes the two-source duplication for good.
 Not worth doing until the backfill is much further along.
 
+## Planned: fix in-progress season ordering in Season History tab
+
+`SeasonStandingsTable` currently renders `standings` in the order given
+in `seasons.json`, which is the source sheet's placeholder order for a
+season still in progress (`complete: false`) — not a real ranking. For a
+season like 2026, it should instead sort by win% (or wins, with games
+played so far) so the in-progress standings look like a real leaderboard
+rather than an arbitrary list. Completed seasons are unaffected since
+their `standings` order is already the real final ranking.
+
 ## Adding matchup history
 
 Yahoo doesn't offer a bulk export, so this is manual: for a season, open
