@@ -29,6 +29,18 @@
     { "managerId": "matt", "pick": 7 },
     { "managerId": "daniel", "pick": 8 }
   ] },
+  { "year": 2015, "order": [
+    { "managerId": "john", "pick": 1 },
+    { "managerId": "chris", "pick": 2 },
+    { "managerId": "greg", "pick": 3 },
+    { "managerId": "conor", "pick": 4 },
+    { "managerId": "jamie", "pick": 5 },
+    { "managerId": "steve", "pick": 6 },
+    { "managerId": "andy", "pick": 7 },
+    { "managerId": "matt", "pick": 8 },
+    { "managerId": "collin", "pick": 9 },
+    { "managerId": "sam", "pick": 10 }
+  ] },
   { "year": 2017, "order": [
     { "managerId": "steve", "pick": 1 },
     { "managerId": "greg", "pick": 2 },
