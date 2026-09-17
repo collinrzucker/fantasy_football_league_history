@@ -7,6 +7,12 @@ Built with Next.js (App Router), TypeScript, and Tailwind CSS. League data
 lives in flat JSON files in `data/` — see `data/README.md` for the schema
 and how to add a new season.
 
+## Deployment
+
+Deployed on Vercel from this branch (`main`). Active development happens
+on `claude/fantasy-football-dashboard-7aj4cx` and gets merged here at
+checkpoints, which is what pushes updates live.
+
 ## Development
 
 ```bash
