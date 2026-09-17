@@ -1,4 +1,46 @@
 [
+  { "year": 2012, "order": [
+    { "managerId": "jamie", "pick": 1 },
+    { "managerId": "collin", "pick": 2 },
+    { "managerId": "matt", "pick": 3 },
+    { "managerId": "john", "pick": 4 },
+    { "managerId": "sam", "pick": 5 },
+    { "managerId": "conor", "pick": 6 },
+    { "managerId": "greg", "pick": 7 },
+    { "managerId": "daniel", "pick": 8 }
+  ] },
+  { "year": 2013, "order": [
+    { "managerId": "collin", "pick": 1 },
+    { "managerId": "greg", "pick": 2 },
+    { "managerId": "daniel", "pick": 3 },
+    { "managerId": "john", "pick": 4 },
+    { "managerId": "sam", "pick": 5 },
+    { "managerId": "conor", "pick": 6 },
+    { "managerId": "matt", "pick": 7 },
+    { "managerId": "jamie", "pick": 8 }
+  ] },
+  { "year": 2014, "order": [
+    { "managerId": "sam", "pick": 1 },
+    { "managerId": "greg", "pick": 2 },
+    { "managerId": "collin", "pick": 3 },
+    { "managerId": "conor", "pick": 4 },
+    { "managerId": "jamie", "pick": 5 },
+    { "managerId": "john", "pick": 6 },
+    { "managerId": "matt", "pick": 7 },
+    { "managerId": "daniel", "pick": 8 }
+  ] },
+  { "year": 2015, "order": [
+    { "managerId": "john", "pick": 1 },
+    { "managerId": "chris", "pick": 2 },
+    { "managerId": "greg", "pick": 3 },
+    { "managerId": "conor", "pick": 4 },
+    { "managerId": "jamie", "pick": 5 },
+    { "managerId": "steve", "pick": 6 },
+    { "managerId": "andy", "pick": 7 },
+    { "managerId": "matt", "pick": 8 },
+    { "managerId": "collin", "pick": 9 },
+    { "managerId": "sam", "pick": 10 }
+  ] },
   { "year": 2017, "order": [
     { "managerId": "steve", "pick": 1 },
     { "managerId": "greg", "pick": 2 },
