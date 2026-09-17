@@ -26,9 +26,10 @@ so renames don't cascade.
   `order` is pick 1 → pick N.
 - **matchups.json** — week-by-week matchup results (`year`, `week`, `type`,
   `home`/`away` managerIds, `homeScore`/`awayScore`). `type` is one of
-  `regular`, `quarterfinal`, `semifinal`, `championship`, `thirdPlace`,
-  `consolation`. Empty until filled in — see "Adding matchup history"
-  below. Powers the Head-to-Head tab once populated.
+  `regular`, `firstround`, `semifinal`, `championship` — the league doesn't
+  track consolation/3rd-place games historically, so those aren't modeled.
+  Empty until filled in — see "Adding matchup history" below. Powers the
+  Head-to-Head tab once populated.
 
 ## Known gaps / not yet included
 
@@ -53,8 +54,10 @@ Matchup by week) and copy each week's scores into a copy of
 Season,Week,GameType,HomeManager,HomeScore,AwayManager,AwayScore
 ```
 
-- `GameType`: `regular`, `quarterfinal`, `semifinal`, `championship`,
-  `thirdPlace`, or `consolation`.
+- `GameType`: `regular`, `firstround`, `semifinal`, or `championship`. For
+  the 2012 bracket (4 playoff teams, no bye round), use `semifinal` for
+  the opening round and `championship` for the final — there's no
+  `firstround` game that year since the bracket only has two rounds.
 - `HomeManager`/`AwayManager`: first name or full name from
   `managers.json` — the import script resolves either.
 

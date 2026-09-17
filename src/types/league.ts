@@ -69,11 +69,9 @@ export interface CareerRecord {
 
 export type MatchupType =
   | "regular"
-  | "quarterfinal"
+  | "firstround"
   | "semifinal"
-  | "championship"
-  | "thirdPlace"
-  | "consolation";
+  | "championship";
 
 export interface Matchup {
   year: number;

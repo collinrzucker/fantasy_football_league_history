@@ -4,7 +4,7 @@
 //   node scripts/import-matchups.mjs path/to/filled.csv
 //
 // CSV columns: Season,Week,GameType,HomeManager,HomeScore,AwayManager,AwayScore
-// GameType: regular | quarterfinal | semifinal | championship | thirdPlace | consolation
+// GameType: regular | firstround | semifinal | championship
 // HomeManager/AwayManager: first name or full name from data/managers.json.
 //
 // Validates every row before writing anything. Merges with the existing
@@ -19,11 +19,9 @@ const dataDir = path.join(__dirname, "..", "data");
 
 const VALID_TYPES = new Set([
   "regular",
-  "quarterfinal",
+  "firstround",
   "semifinal",
   "championship",
-  "thirdPlace",
-  "consolation",
 ]);
 
 function parseCsv(text) {
