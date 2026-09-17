@@ -1192,80 +1192,80 @@
       {
         "rank": 1,
         "managerId": "andy",
-        "wins": null,
-        "losses": null,
+        "wins": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 2,
         "managerId": "chris",
-        "wins": null,
-        "losses": null,
+        "wins": 1,
+        "losses": 0,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 3,
         "managerId": "conor",
-        "wins": null,
-        "losses": null,
+        "wins": 1,
+        "losses": 0,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 4,
         "managerId": "collin",
-        "wins": null,
-        "losses": null,
+        "wins": 1,
+        "losses": 0,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 5,
         "managerId": "greg",
-        "wins": null,
-        "losses": null,
+        "wins": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 6,
         "managerId": "john",
-        "wins": null,
-        "losses": null,
+        "wins": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 7,
         "managerId": "matt",
-        "wins": null,
-        "losses": null,
+        "wins": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 8,
         "managerId": "owen",
-        "wins": null,
-        "losses": null,
+        "wins": 1,
+        "losses": 0,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 9,
         "managerId": "sam",
-        "wins": null,
-        "losses": null,
+        "wins": 1,
+        "losses": 0,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 10,
         "managerId": "steve",
-        "wins": null,
-        "losses": null,
+        "wins": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       }
