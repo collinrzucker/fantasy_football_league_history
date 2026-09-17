@@ -1,12 +1,35 @@
-import { getCareerRecords, getManagerMap, getSeasons } from "@/lib/data";
+import {
+  getCareerRecords,
+  getManagerMap,
+  getMatchupCareerStats,
+  getSeasons,
+} from "@/lib/data";
+import type { MatchupFilter } from "@/lib/data";
 import { firstName } from "@/lib/format";
 import { StatTile } from "@/components/StatTile";
 import { CareerRecordsTable } from "@/components/CareerRecordsTable";
+import { MatchupCareerTable } from "@/components/MatchupCareerTable";
+import { FilterTabs } from "@/components/FilterTabs";
 
-export default function Home() {
+interface HomeProps {
+  searchParams: Promise<{ type?: string }>;
+}
+
+const TYPE_OPTIONS = [
+  { value: "all", label: "All" },
+  { value: "regular", label: "Regular season" },
+  { value: "playoffs", label: "Playoffs" },
+];
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { type } = await searchParams;
+  const filter: MatchupFilter =
+    type === "regular" || type === "playoffs" ? type : "all";
+
   const managerMap = getManagerMap();
   const records = getCareerRecords();
   const seasons = getSeasons();
+  const { stats: matchupStats, seasonsCovered } = getMatchupCareerStats(filter);
 
   const completeSeasons = seasons.filter((s) => s.complete);
   const latestSeason = completeSeasons[completeSeasons.length - 1];
@@ -21,6 +44,8 @@ export default function Home() {
   )[0];
 
   const managerMapObj = Object.fromEntries(managerMap);
+  const first = seasonsCovered[0];
+  const last = seasonsCovered[seasonsCovered.length - 1];
 
   return (
     <div className="flex flex-col gap-8">
@@ -60,6 +85,29 @@ export default function Home() {
         </div>
         <CareerRecordsTable records={records} managerMap={managerMapObj} />
       </section>
+
+      {matchupStats.length > 0 && (
+        <section className="flex flex-col gap-3">
+          <div>
+            <h2 className="text-sm font-medium text-text-primary">
+              Matchup stats
+            </h2>
+            <p className="text-sm text-text-muted">
+              {first}
+              {last !== first ? `–${last}` : ""} only — based on week-by-week
+              matchup data entered so far. Will expand to full history as more
+              seasons are added.
+            </p>
+          </div>
+          <FilterTabs
+            basePath="/"
+            paramName="type"
+            options={TYPE_OPTIONS}
+            activeValue={filter}
+          />
+          <MatchupCareerTable stats={matchupStats} managerMap={managerMapObj} />
+        </section>
+      )}
     </div>
   );
 }

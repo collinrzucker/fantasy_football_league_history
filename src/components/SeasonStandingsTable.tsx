@@ -51,9 +51,14 @@ export function SeasonStandingsTable({
                   title={standing.playoffs ? "Made the playoffs" : undefined}
                 >
                   {manager?.fullName ?? standing.managerId}
-                  {standing.championship && (
-                    <span className="ml-1.5 text-xs text-text-muted" aria-label="Reached the championship">
+                  {season.champion === standing.managerId && (
+                    <span className="ml-1.5 text-xs" aria-label="Champion">
                       🏆
+                    </span>
+                  )}
+                  {season.runnerUp === standing.managerId && (
+                    <span className="ml-1.5 text-xs" aria-label="Runner-up">
+                      🥈
                     </span>
                   )}
                 </td>
@@ -78,7 +83,7 @@ export function SeasonStandingsTable({
       )}
       <p className="border-t border-border px-4 py-2 text-xs text-text-muted">
         <span className="font-semibold text-text-primary">Bold</span> = made the playoffs
-        {season.complete && <> · 🏆 = reached the championship</>}
+        {season.complete && <> · 🏆 = champion · 🥈 = runner-up</>}
       </p>
     </div>
   );

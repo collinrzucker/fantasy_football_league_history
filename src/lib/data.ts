@@ -100,37 +100,57 @@ export function getMatchups(): Matchup[] {
 export interface HeadToHeadCell {
   wins: number;
   losses: number;
+  pointsFor: number;
+  pointsAgainst: number;
 }
 
 export interface HeadToHeadData {
   managerIds: ManagerId[];
-  /** matrix[a][b] = a's record against b */
+  /** matrix[a][b] = a's record/points against b */
   matrix: Record<ManagerId, Record<ManagerId, HeadToHeadCell>>;
   seasonsCovered: number[];
 }
 
-export function getHeadToHead(): HeadToHeadData {
-  const matchups = getMatchups();
+export type MatchupFilter = "all" | "regular" | "playoffs";
+
+export function getHeadToHead(filter: MatchupFilter = "all"): HeadToHeadData {
+  const allMatchups = getMatchups();
+  const matchups = allMatchups.filter((m) =>
+    filter === "all"
+      ? true
+      : filter === "regular"
+        ? m.type === "regular"
+        : m.type !== "regular"
+  );
   const managers = getManagers();
   const matrix: HeadToHeadData["matrix"] = {};
   const involvedIds = new Set<ManagerId>();
   const seasonsCovered = new Set<number>();
 
+  function cell(a: ManagerId, b: ManagerId): HeadToHeadCell {
+    matrix[a] ??= {};
+    matrix[a][b] ??= { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
+    return matrix[a][b];
+  }
+
   for (const m of matchups) {
     seasonsCovered.add(m.year);
     involvedIds.add(m.home);
     involvedIds.add(m.away);
-    matrix[m.home] ??= {};
-    matrix[m.away] ??= {};
-    matrix[m.home][m.away] ??= { wins: 0, losses: 0 };
-    matrix[m.away][m.home] ??= { wins: 0, losses: 0 };
+
+    const home = cell(m.home, m.away);
+    const away = cell(m.away, m.home);
+    home.pointsFor += m.homeScore;
+    home.pointsAgainst += m.awayScore;
+    away.pointsFor += m.awayScore;
+    away.pointsAgainst += m.homeScore;
 
     if (m.homeScore > m.awayScore) {
-      matrix[m.home][m.away].wins += 1;
-      matrix[m.away][m.home].losses += 1;
+      home.wins += 1;
+      away.losses += 1;
     } else {
-      matrix[m.away][m.home].wins += 1;
-      matrix[m.home][m.away].losses += 1;
+      away.wins += 1;
+      home.losses += 1;
     }
   }
 
@@ -143,6 +163,79 @@ export function getHeadToHead(): HeadToHeadData {
     matrix,
     seasonsCovered: [...seasonsCovered].sort((a, b) => a - b),
   };
+}
+
+export interface MatchupCareerStat {
+  managerId: ManagerId;
+  wins: number;
+  losses: number;
+  games: number;
+  winPct: number;
+  avgPointsFor: number;
+  avgPointsAgainst: number;
+}
+
+export function getMatchupCareerStats(
+  filter: MatchupFilter = "all"
+): { stats: MatchupCareerStat[]; seasonsCovered: number[] } {
+  const allMatchups = getMatchups();
+  const matchups = allMatchups.filter((m) =>
+    filter === "all"
+      ? true
+      : filter === "regular"
+        ? m.type === "regular"
+        : m.type !== "regular"
+  );
+
+  const totals = new Map<
+    ManagerId,
+    { wins: number; losses: number; pointsFor: number; pointsAgainst: number }
+  >();
+  const seasonsCovered = new Set<number>();
+
+  function get(id: ManagerId) {
+    let t = totals.get(id);
+    if (!t) {
+      t = { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
+      totals.set(id, t);
+    }
+    return t;
+  }
+
+  for (const m of matchups) {
+    seasonsCovered.add(m.year);
+    const home = get(m.home);
+    const away = get(m.away);
+    home.pointsFor += m.homeScore;
+    home.pointsAgainst += m.awayScore;
+    away.pointsFor += m.awayScore;
+    away.pointsAgainst += m.homeScore;
+    if (m.homeScore > m.awayScore) {
+      home.wins += 1;
+      away.losses += 1;
+    } else {
+      away.wins += 1;
+      home.losses += 1;
+    }
+  }
+
+  const stats: MatchupCareerStat[] = [...totals.entries()].map(
+    ([managerId, t]) => {
+      const games = t.wins + t.losses;
+      return {
+        managerId,
+        wins: t.wins,
+        losses: t.losses,
+        games,
+        winPct: games > 0 ? t.wins / games : 0,
+        avgPointsFor: games > 0 ? t.pointsFor / games : 0,
+        avgPointsAgainst: games > 0 ? t.pointsAgainst / games : 0,
+      };
+    }
+  );
+  stats.sort((a, b) => b.wins - a.wins);
+
+  return { stats, seasonsCovered: [...seasonsCovered].sort((a, b) => a - b) };
 }
 
 export function getCareerRecords(): CareerRecord[] {
