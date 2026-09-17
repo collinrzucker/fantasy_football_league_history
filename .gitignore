@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scratch output from Yahoo API pull scripts
+yahoo-debug-*.json
+yahoo-debug-*.txt
+yahoo-league-chain.json
