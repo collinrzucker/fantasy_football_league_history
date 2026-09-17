@@ -504,6 +504,33 @@
     "awayScore": 86.44
   },
   {
+    "year": 2012,
+    "week": 15,
+    "type": "semifinal",
+    "home": "greg",
+    "homeScore": 113.52,
+    "away": "sam",
+    "awayScore": 97.98
+  },
+  {
+    "year": 2012,
+    "week": 15,
+    "type": "semifinal",
+    "home": "john",
+    "homeScore": 100.1,
+    "away": "conor",
+    "awayScore": 74.84
+  },
+  {
+    "year": 2012,
+    "week": 16,
+    "type": "championship",
+    "home": "john",
+    "homeScore": 131.66,
+    "away": "greg",
+    "awayScore": 102.78
+  },
+  {
     "year": 2024,
     "week": 1,
     "type": "regular",
