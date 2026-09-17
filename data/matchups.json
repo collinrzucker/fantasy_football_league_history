@@ -999,6 +999,51 @@
     "awayScore": 174.08
   },
   {
+    "year": 2013,
+    "week": 14,
+    "type": "firstround",
+    "home": "jamie",
+    "homeScore": 153.14,
+    "away": "collin",
+    "awayScore": 132.48
+  },
+  {
+    "year": 2013,
+    "week": 14,
+    "type": "firstround",
+    "home": "greg",
+    "homeScore": 166.72,
+    "away": "conor",
+    "awayScore": 142.4
+  },
+  {
+    "year": 2013,
+    "week": 15,
+    "type": "semifinal",
+    "home": "jamie",
+    "homeScore": 192.52,
+    "away": "john",
+    "awayScore": 172.46
+  },
+  {
+    "year": 2013,
+    "week": 15,
+    "type": "semifinal",
+    "home": "greg",
+    "homeScore": 150.16,
+    "away": "daniel",
+    "awayScore": 98.66
+  },
+  {
+    "year": 2013,
+    "week": 16,
+    "type": "championship",
+    "home": "jamie",
+    "homeScore": 138.76,
+    "away": "greg",
+    "awayScore": 120.02
+  },
+  {
     "year": 2024,
     "week": 1,
     "type": "regular",
