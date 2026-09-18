@@ -38,7 +38,10 @@ so renames don't cascade.
   `data/matchups-template.csv` (see below).
 - **Team names** — intentionally omitted; they changed too often to be
   meaningful. Dashboard uses manager names throughout.
-- **Pre-2017 draft order** — not currently available.
+- **Pre-2017 draft order** — mostly filled in (2012–2015 confirmed), but
+  **2016 specifically is a gap** — skipped when we jumped from 2015 to
+  2017 in an earlier session. Ask the user for it when doing 2016's
+  matchup backfill.
 - **Trophies / punishments / rivalries / league rules** — not tracked yet.
 - **2026 season** — `complete: false`, standings fill in week by week as
   results come in (rank order isn't a real ranking until the season ends).
@@ -55,6 +58,16 @@ by game type). At that point `seasons.json`'s per-manager `wins`/`losses`/
 themselves — become derivable from `matchups.json` instead of
 hand-maintained, which removes the two-source duplication for good.
 Not worth doing until the backfill is much further along.
+
+## Planned: fix in-progress season ordering in Season History tab
+
+`SeasonStandingsTable` currently renders `standings` in the order given
+in `seasons.json`, which is the source sheet's placeholder order for a
+season still in progress (`complete: false`) — not a real ranking. For a
+season like 2026, it should instead sort by win% (or wins, with games
+played so far) so the in-progress standings look like a real leaderboard
+rather than an arbitrary list. Completed seasons are unaffected since
+their `standings` order is already the real final ranking.
 
 ## Adding matchup history
 

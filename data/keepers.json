@@ -72,5 +72,20 @@
       { "managerId": "sam", "player": "Jaxon Smith-Njigba", "roundLost": 10 },
       { "managerId": "steve", "player": "Terry McLaurin", "roundLost": 6 }
     ]
+  },
+  {
+    "year": 2026,
+    "keepers": [
+      { "managerId": "andy", "player": "Drake Maye", "roundLost": 14 },
+      { "managerId": "chris", "player": "Bo Nix", "roundLost": 10 },
+      { "managerId": "collin", "player": "Chris Olave", "roundLost": 9 },
+      { "managerId": "conor", "player": "Jaxson Dart", "roundLost": 14 },
+      { "managerId": "greg", "player": "Rashee Rice", "roundLost": 6 },
+      { "managerId": "john", "player": "Baker Mayfield", "roundLost": 9 },
+      { "managerId": "matt", "player": "Chase Brown", "roundLost": 9 },
+      { "managerId": "owen", "player": "Matt Stafford", "roundLost": 11 },
+      { "managerId": "sam", "player": "Jaxon Smith-Njigba", "roundLost": 9 },
+      { "managerId": "steve", "player": "Javonte Williams", "roundLost": 13 }
+    ]
   }
 ]
