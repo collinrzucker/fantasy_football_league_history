@@ -2187,6 +2187,591 @@
     "awayScore": 106.94
   },
   {
+    "year": 2016,
+    "week": 1,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 159.02,
+    "away": "collin",
+    "awayScore": 141.57
+  },
+  {
+    "year": 2016,
+    "week": 1,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 132.15,
+    "away": "conor",
+    "awayScore": 122.08
+  },
+  {
+    "year": 2016,
+    "week": 1,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 134.46,
+    "away": "jamie",
+    "awayScore": 105.93
+  },
+  {
+    "year": 2016,
+    "week": 1,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 96.6,
+    "away": "sam",
+    "awayScore": 153.48
+  },
+  {
+    "year": 2016,
+    "week": 1,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 88.34,
+    "away": "john",
+    "awayScore": 131.09
+  },
+  {
+    "year": 2016,
+    "week": 2,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 139.57,
+    "away": "john",
+    "awayScore": 94.13
+  },
+  {
+    "year": 2016,
+    "week": 2,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 144.58,
+    "away": "andy",
+    "awayScore": 101.55
+  },
+  {
+    "year": 2016,
+    "week": 2,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 150.89,
+    "away": "conor",
+    "awayScore": 117.83
+  },
+  {
+    "year": 2016,
+    "week": 2,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 90.48,
+    "away": "jamie",
+    "awayScore": 111.34
+  },
+  {
+    "year": 2016,
+    "week": 2,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 134.39,
+    "away": "sam",
+    "awayScore": 79.55
+  },
+  {
+    "year": 2016,
+    "week": 3,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 128.14,
+    "away": "andy",
+    "awayScore": 121.1
+  },
+  {
+    "year": 2016,
+    "week": 3,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 103.86,
+    "away": "steve",
+    "awayScore": 101.68
+  },
+  {
+    "year": 2016,
+    "week": 3,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 122.25,
+    "away": "conor",
+    "awayScore": 116.49
+  },
+  {
+    "year": 2016,
+    "week": 3,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 114.92,
+    "away": "jamie",
+    "awayScore": 116.62
+  },
+  {
+    "year": 2016,
+    "week": 3,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 144.19,
+    "away": "john",
+    "awayScore": 167.23
+  },
+  {
+    "year": 2016,
+    "week": 4,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 111.75,
+    "away": "steve",
+    "awayScore": 123.78
+  },
+  {
+    "year": 2016,
+    "week": 4,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 166.56,
+    "away": "chris",
+    "awayScore": 104.08
+  },
+  {
+    "year": 2016,
+    "week": 4,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 96.62,
+    "away": "john",
+    "awayScore": 116.41
+  },
+  {
+    "year": 2016,
+    "week": 4,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 88.02,
+    "away": "conor",
+    "awayScore": 99.7
+  },
+  {
+    "year": 2016,
+    "week": 4,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 131.35,
+    "away": "jamie",
+    "awayScore": 140.13
+  },
+  {
+    "year": 2016,
+    "week": 5,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 117.68,
+    "away": "chris",
+    "awayScore": 113.84
+  },
+  {
+    "year": 2016,
+    "week": 5,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 101.29,
+    "away": "matt",
+    "awayScore": 117.65
+  },
+  {
+    "year": 2016,
+    "week": 5,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 165.41,
+    "away": "steve",
+    "awayScore": 170.57
+  },
+  {
+    "year": 2016,
+    "week": 5,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 108.04,
+    "away": "conor",
+    "awayScore": 103.14
+  },
+  {
+    "year": 2016,
+    "week": 5,
+    "type": "regular",
+    "home": "jamie",
+    "homeScore": 104.15,
+    "away": "john",
+    "awayScore": 124.21
+  },
+  {
+    "year": 2016,
+    "week": 6,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 118.8,
+    "away": "matt",
+    "awayScore": 133.65
+  },
+  {
+    "year": 2016,
+    "week": 6,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 107.86,
+    "away": "sam",
+    "awayScore": 98.2
+  },
+  {
+    "year": 2016,
+    "week": 6,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 159.67,
+    "away": "chris",
+    "awayScore": 95.73
+  },
+  {
+    "year": 2016,
+    "week": 6,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 123.23,
+    "away": "john",
+    "awayScore": 105.42
+  },
+  {
+    "year": 2016,
+    "week": 6,
+    "type": "regular",
+    "home": "jamie",
+    "homeScore": 98.11,
+    "away": "conor",
+    "awayScore": 100.23
+  },
+  {
+    "year": 2016,
+    "week": 7,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 138.37,
+    "away": "sam",
+    "awayScore": 122.76
+  },
+  {
+    "year": 2016,
+    "week": 7,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 98.69,
+    "away": "jamie",
+    "awayScore": 94.22
+  },
+  {
+    "year": 2016,
+    "week": 7,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 124.29,
+    "away": "matt",
+    "awayScore": 129.88
+  },
+  {
+    "year": 2016,
+    "week": 7,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 139.96,
+    "away": "chris",
+    "awayScore": 100.05
+  },
+  {
+    "year": 2016,
+    "week": 7,
+    "type": "regular",
+    "home": "conor",
+    "homeScore": 132.46,
+    "away": "john",
+    "awayScore": 108.3
+  },
+  {
+    "year": 2016,
+    "week": 8,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 112.45,
+    "away": "jamie",
+    "awayScore": 96.19
+  },
+  {
+    "year": 2016,
+    "week": 8,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 124.41,
+    "away": "conor",
+    "awayScore": 122.72
+  },
+  {
+    "year": 2016,
+    "week": 8,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 127.23,
+    "away": "sam",
+    "awayScore": 121.57
+  },
+  {
+    "year": 2016,
+    "week": 8,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 123.14,
+    "away": "matt",
+    "awayScore": 133.6
+  },
+  {
+    "year": 2016,
+    "week": 8,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 137.95,
+    "away": "john",
+    "awayScore": 117.89
+  },
+  {
+    "year": 2016,
+    "week": 9,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 114.88,
+    "away": "conor",
+    "awayScore": 110.59
+  },
+  {
+    "year": 2016,
+    "week": 9,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 156.11,
+    "away": "john",
+    "awayScore": 108.04
+  },
+  {
+    "year": 2016,
+    "week": 9,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 97.02,
+    "away": "jamie",
+    "awayScore": 137.94
+  },
+  {
+    "year": 2016,
+    "week": 9,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 149.39,
+    "away": "sam",
+    "awayScore": 120.07
+  },
+  {
+    "year": 2016,
+    "week": 9,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 105.33,
+    "away": "matt",
+    "awayScore": 135.74
+  },
+  {
+    "year": 2016,
+    "week": 10,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 136.74,
+    "away": "collin",
+    "awayScore": 122.6
+  },
+  {
+    "year": 2016,
+    "week": 10,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 138.93,
+    "away": "conor",
+    "awayScore": 108.24
+  },
+  {
+    "year": 2016,
+    "week": 10,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 136.3,
+    "away": "jamie",
+    "awayScore": 104.57
+  },
+  {
+    "year": 2016,
+    "week": 10,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 113.56,
+    "away": "sam",
+    "awayScore": 120.05
+  },
+  {
+    "year": 2016,
+    "week": 10,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 108.23,
+    "away": "john",
+    "awayScore": 126.45
+  },
+  {
+    "year": 2016,
+    "week": 11,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 90.57,
+    "away": "john",
+    "awayScore": 99.32
+  },
+  {
+    "year": 2016,
+    "week": 11,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 109.69,
+    "away": "andy",
+    "awayScore": 141.73
+  },
+  {
+    "year": 2016,
+    "week": 11,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 145.09,
+    "away": "conor",
+    "awayScore": 94.37
+  },
+  {
+    "year": 2016,
+    "week": 11,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 125.26,
+    "away": "jamie",
+    "awayScore": 105.52
+  },
+  {
+    "year": 2016,
+    "week": 11,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 108.67,
+    "away": "sam",
+    "awayScore": 115.86
+  },
+  {
+    "year": 2016,
+    "week": 12,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 121.38,
+    "away": "andy",
+    "awayScore": 106.63
+  },
+  {
+    "year": 2016,
+    "week": 12,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 136.07,
+    "away": "steve",
+    "awayScore": 130.8
+  },
+  {
+    "year": 2016,
+    "week": 12,
+    "type": "regular",
+    "home": "chris",
+    "homeScore": 113.22,
+    "away": "conor",
+    "awayScore": 119.4
+  },
+  {
+    "year": 2016,
+    "week": 12,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 132.98,
+    "away": "jamie",
+    "awayScore": 111.2
+  },
+  {
+    "year": 2016,
+    "week": 12,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 148.9,
+    "away": "john",
+    "awayScore": 109.34
+  },
+  {
+    "year": 2016,
+    "week": 13,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 127.53,
+    "away": "steve",
+    "awayScore": 138.73
+  },
+  {
+    "year": 2016,
+    "week": 13,
+    "type": "regular",
+    "home": "collin",
+    "homeScore": 102.51,
+    "away": "chris",
+    "awayScore": 116.43
+  },
+  {
+    "year": 2016,
+    "week": 13,
+    "type": "regular",
+    "home": "andy",
+    "homeScore": 148.59,
+    "away": "john",
+    "awayScore": 122.76
+  },
+  {
+    "year": 2016,
+    "week": 13,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 120.53,
+    "away": "conor",
+    "awayScore": 122.55
+  },
+  {
+    "year": 2016,
+    "week": 13,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 89.21,
+    "away": "jamie",
+    "awayScore": 94.36
+  },
+  {
     "year": 2024,
     "week": 1,
     "type": "regular",
