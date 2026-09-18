@@ -4032,6 +4032,51 @@
     "awayScore": 113.3
   },
   {
+    "year": 2018,
+    "week": 14,
+    "type": "firstround",
+    "home": "greg",
+    "homeScore": 119.79,
+    "away": "collin",
+    "awayScore": 104.82
+  },
+  {
+    "year": 2018,
+    "week": 14,
+    "type": "firstround",
+    "home": "john",
+    "homeScore": 161.54,
+    "away": "sam",
+    "awayScore": 130.76
+  },
+  {
+    "year": 2018,
+    "week": 15,
+    "type": "semifinal",
+    "home": "greg",
+    "homeScore": 147.91,
+    "away": "andy",
+    "awayScore": 116.6
+  },
+  {
+    "year": 2018,
+    "week": 15,
+    "type": "semifinal",
+    "home": "matt",
+    "homeScore": 114.54,
+    "away": "john",
+    "awayScore": 104.55
+  },
+  {
+    "year": 2018,
+    "week": 16,
+    "type": "championship",
+    "home": "matt",
+    "homeScore": 158.56,
+    "away": "greg",
+    "awayScore": 136.8
+  },
+  {
     "year": 2024,
     "week": 1,
     "type": "regular",
