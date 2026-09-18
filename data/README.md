@@ -38,7 +38,10 @@ so renames don't cascade.
   `data/matchups-template.csv` (see below).
 - **Team names** — intentionally omitted; they changed too often to be
   meaningful. Dashboard uses manager names throughout.
-- **Pre-2017 draft order** — not currently available.
+- **Pre-2017 draft order** — mostly filled in (2012–2015 confirmed), but
+  **2016 specifically is a gap** — skipped when we jumped from 2015 to
+  2017 in an earlier session. Ask the user for it when doing 2016's
+  matchup backfill.
 - **Trophies / punishments / rivalries / league rules** — not tracked yet.
 - **2026 season** — `complete: false`, standings fill in week by week as
   results come in (rank order isn't a real ranking until the season ends).
