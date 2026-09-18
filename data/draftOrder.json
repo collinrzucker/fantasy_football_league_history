@@ -148,5 +148,17 @@
     { "managerId": "collin", "pick": 8 },
     { "managerId": "matt", "pick": 9 },
     { "managerId": "owen", "pick": 10 }
+  ] },
+  { "year": 2026, "order": [
+    { "managerId": "chris", "pick": 1 },
+    { "managerId": "matt", "pick": 2 },
+    { "managerId": "collin", "pick": 3 },
+    { "managerId": "john", "pick": 4 },
+    { "managerId": "steve", "pick": 5 },
+    { "managerId": "sam", "pick": 6 },
+    { "managerId": "owen", "pick": 7 },
+    { "managerId": "andy", "pick": 8 },
+    { "managerId": "greg", "pick": 9 },
+    { "managerId": "conor", "pick": 10 }
   ] }
 ]
