@@ -84,15 +84,12 @@ Running backlog of dashboard UI/data feature requests, tracked ad hoc as
 the user adds them (not in priority order — ask before starting on one if
 unclear which is next):
 
-1. ~~Consolidate Career Records onto matchups.json~~ — done.
-2. Pythagorean win% + Luck Index on the Career Records table.
-3. ~~Season History tab sorts in-progress seasons by win%~~ — done.
-4. ~~Remove Draft Order footnote~~ — done.
-5. Draft Order: click a manager's name to highlight their cells across years.
-6. Draft Order: table/line-chart toggle (year on x-axis, pick reversed on y).
-7. ~~Remove inline Keepers streak text~~ — done (legend footnote still covers it).
-8. ~~Head-to-Head subtitle reflects full backfilled history~~ — done.
-9. ~~Head-to-Head totals/averages column~~ — done.
+All 9 items from the 2026-09-20 backlog are done:
+Career Records consolidation + Pythagorean win%/Luck Index, Season
+History win%-sort for in-progress seasons, Draft Order footnote removal +
+click-to-highlight + table/chart toggle, Keepers inline-text removal,
+Head-to-Head subtitle + totals column. None currently pending — ask the
+user before assuming what's next.
 
 ## Design system
 
