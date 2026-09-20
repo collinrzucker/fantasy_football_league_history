@@ -111,9 +111,6 @@ export function AvgDraftPositionTable({
           ))}
         </tbody>
       </table>
-      <p className="border-t border-border px-4 py-2 text-xs text-text-muted">
-        Lower average pick = earlier, more favorable draft slot, more often.
-      </p>
     </div>
   );
 }

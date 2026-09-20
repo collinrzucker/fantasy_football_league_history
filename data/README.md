@@ -22,52 +22,27 @@ so renames don't cascade.
 - **keepers.json** — one entry per draft year (2021+, when the keeper
   format started). Each keeper: `managerId`, `player`, `roundLost` (the
   draft round given up to keep them).
-- **draftOrder.json** — one entry per draft year (2017+, earliest known).
-  `order` is pick 1 → pick N.
+- **draftOrder.json** — one entry per draft year (2012+). `order` is
+  pick 1 → pick N.
 - **matchups.json** — week-by-week matchup results (`year`, `week`, `type`,
   `home`/`away` managerIds, `homeScore`/`awayScore`). `type` is one of
   `regular`, `firstround`, `semifinal`, `championship` — the league doesn't
   track consolation/3rd-place games historically, so those aren't modeled.
-  Empty until filled in — see "Adding matchup history" below. Powers the
-  Head-to-Head tab once populated.
+  Covers full league history (2012–2026, in progress). Powers the
+  Head-to-Head tab and homepage Career Records.
 
 ## Known gaps / not yet included
 
-- **Week-by-week matchups** — partial (`matchups.json` currently covers
-  2024–2026 only; older seasons not backfilled yet). Fill in via
-  `data/matchups-template.csv` (see below).
+- **Week-by-week matchups** — **complete**. `matchups.json` covers the
+  full league history (2012–2026, with 2026 filling in weekly as results
+  come in). Fill in future weeks/seasons via `data/matchups-template.csv`
+  (see below).
 - **Team names** — intentionally omitted; they changed too often to be
   meaningful. Dashboard uses manager names throughout.
-- **Pre-2017 draft order** — mostly filled in (2012–2015 confirmed), but
-  **2016 specifically is a gap** — skipped when we jumped from 2015 to
-  2017 in an earlier session. Ask the user for it when doing 2016's
-  matchup backfill.
 - **Trophies / punishments / rivalries / league rules** — not tracked yet.
 - **2026 season** — `complete: false`, standings fill in week by week as
-  results come in (rank order isn't a real ranking until the season ends).
-
-## Planned: consolidate Career Records onto matchups.json
-
-Once `matchups.json` covers full history (all seasons, not just 2024+),
-merge the homepage's two Career Records tables into one: W / L / Win% /
-Avg For / Avg Against all computed from `matchups.json` and responsive to
-the regular-season/playoffs/all filter, while Playoffs / Finals / Titles
-stay static (they're appearance/count metrics, not something that splits
-by game type). At that point `seasons.json`'s per-manager `wins`/`losses`/
-`playoffs`/`championship` fields — and possibly `champion`/`runnerUp`
-themselves — become derivable from `matchups.json` instead of
-hand-maintained, which removes the two-source duplication for good.
-Not worth doing until the backfill is much further along.
-
-## Planned: fix in-progress season ordering in Season History tab
-
-`SeasonStandingsTable` currently renders `standings` in the order given
-in `seasons.json`, which is the source sheet's placeholder order for a
-season still in progress (`complete: false`) — not a real ranking. For a
-season like 2026, it should instead sort by win% (or wins, with games
-played so far) so the in-progress standings look like a real leaderboard
-rather than an arbitrary list. Completed seasons are unaffected since
-their `standings` order is already the real final ranking.
+  results come in. The Season History tab sorts an in-progress season's
+  standings by win% rather than the source sheet's placeholder order.
 
 ## Adding matchup history
 

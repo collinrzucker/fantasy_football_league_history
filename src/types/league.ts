@@ -56,17 +56,6 @@ export interface DraftAverage {
   last5: number | null;
 }
 
-export interface CareerRecord {
-  managerId: ManagerId;
-  wins: number;
-  losses: number;
-  games: number;
-  winPct: number;
-  playoffApps: number;
-  championshipApps: number;
-  championships: number;
-}
-
 export type MatchupType =
   | "regular"
   | "firstround"

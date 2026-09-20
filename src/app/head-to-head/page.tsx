@@ -1,4 +1,4 @@
-import { getHeadToHead, getManagerMap } from "@/lib/data";
+import { getHeadToHead, getManagerMap, getMatchups, getSeasons } from "@/lib/data";
 import type { MatchupFilter } from "@/lib/data";
 import { HeadToHeadMatrix } from "@/components/HeadToHeadMatrix";
 import { FilterTabs } from "@/components/FilterTabs";
@@ -59,6 +59,17 @@ export default async function HeadToHeadPage({
   const first = data.seasonsCovered[0];
   const last = data.seasonsCovered[data.seasonsCovered.length - 1];
 
+  const seasons = getSeasons();
+  const lastSeasonInfo = seasons.find((s) => s.year === last);
+  const latestWeek = !lastSeasonInfo?.complete
+    ? Math.max(
+        0,
+        ...getMatchups()
+          .filter((m) => m.year === last)
+          .map((m) => m.week)
+      )
+    : null;
+
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -68,8 +79,8 @@ export default async function HeadToHeadPage({
         <p className="text-sm text-text-muted">
           Row&apos;s {activeView === "record" ? "record" : "average"} against
           column, {first}
-          {last !== first ? `–${last}` : ""}. Partial history — only seasons
-          entered so far are reflected here.
+          {last !== first ? `–${last}` : ""}
+          {latestWeek ? ` (Week ${latestWeek})` : ""}.
         </p>
       </div>
 

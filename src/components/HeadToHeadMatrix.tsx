@@ -83,6 +83,24 @@ export function HeadToHeadMatrix({
     return idx >= 3;
   }
 
+  function rowTotal(rowId: string) {
+    let wins = 0;
+    let losses = 0;
+    let pointsFor = 0;
+    let pointsAgainst = 0;
+    for (const colId of managerIds) {
+      if (colId === rowId) continue;
+      const c = matrix[rowId]?.[colId];
+      if (!c) continue;
+      wins += c.wins;
+      losses += c.losses;
+      pointsFor += c.pointsFor;
+      pointsAgainst += c.pointsAgainst;
+    }
+    const games = wins + losses;
+    return { wins, losses, pointsFor, pointsAgainst, games };
+  }
+
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
       <table className="w-full min-w-[720px] border-collapse text-sm">
@@ -100,6 +118,12 @@ export function HeadToHeadMatrix({
                 {managerMap.get(id)?.fullName.split(" ")[0] ?? id}
               </th>
             ))}
+            <th
+              scope="col"
+              className="border-l-2 border-border px-3 py-3 text-center font-medium text-text-muted"
+            >
+              Total
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -166,6 +190,38 @@ export function HeadToHeadMatrix({
                   </td>
                 );
               })}
+              {(() => {
+                const t = rowTotal(rowId);
+                if (view === "record") {
+                  return (
+                    <td className="border-l-2 border-border px-3 py-2.5 text-center tabular-nums font-medium text-text-primary">
+                      {t.games > 0 ? `${t.wins}-${t.losses}` : "—"}
+                    </td>
+                  );
+                }
+                if (t.games === 0) {
+                  return (
+                    <td className="border-l-2 border-border px-3 py-2.5 text-center tabular-nums text-text-muted">
+                      —
+                    </td>
+                  );
+                }
+                const value =
+                  view === "pointsFor"
+                    ? t.pointsFor / t.games
+                    : view === "pointsAgainst"
+                      ? t.pointsAgainst / t.games
+                      : (t.pointsFor - t.pointsAgainst) / t.games;
+                const label =
+                  view === "margin" && value > 0
+                    ? `+${value.toFixed(1)}`
+                    : value.toFixed(1);
+                return (
+                  <td className="border-l-2 border-border px-3 py-2.5 text-center tabular-nums font-medium text-text-primary">
+                    {label}
+                  </td>
+                );
+              })()}
             </tr>
           ))}
         </tbody>
