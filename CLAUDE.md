@@ -88,8 +88,14 @@ All 9 items from the 2026-09-20 backlog are done:
 Career Records consolidation + Pythagorean win%/Luck Index, Season
 History win%-sort for in-progress seasons, Draft Order footnote removal +
 click-to-highlight + table/chart toggle, Keepers inline-text removal,
-Head-to-Head subtitle + totals column. None currently pending — ask the
-user before assuming what's next.
+Head-to-Head subtitle + totals column.
+
+Next up (not started yet, added 2026-09-20):
+
+1. New "Championship History" tab — chronological table of championship
+   game scores, most recent first.
+2. Re-order the nav tabs to: Career Records, Season History, Championship
+   History, Head to Head, Draft Order, Keepers.
 
 ## Design system
 
