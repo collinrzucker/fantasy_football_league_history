@@ -1,12 +1,11 @@
 import { getDraftAverages, getDraftYears, getManagerMap } from "@/lib/data";
-import { DraftOrderGrid } from "@/components/DraftOrderGrid";
+import { DraftOrderSection } from "@/components/DraftOrderSection";
 import { AvgDraftPositionTable } from "@/components/AvgDraftPositionTable";
 
 export default function DraftPage() {
-  const managerMap = getManagerMap();
   const draftYears = getDraftYears();
   const averages = getDraftAverages();
-  const managerMapObj = Object.fromEntries(managerMap);
+  const managerMapObj = Object.fromEntries(getManagerMap());
 
   return (
     <div className="flex flex-col gap-8">
@@ -19,7 +18,7 @@ export default function DraftPage() {
             Pick order, {draftYears[0]?.year}–{draftYears[draftYears.length - 1]?.year}
           </p>
         </div>
-        <DraftOrderGrid draftYears={draftYears} managerMap={managerMap} />
+        <DraftOrderSection draftYears={draftYears} managerMap={managerMapObj} />
       </section>
 
       <section className="flex flex-col gap-3">
