@@ -1,13 +1,7 @@
-import {
-  getCareerRecords,
-  getManagerMap,
-  getMatchupCareerStats,
-  getSeasons,
-} from "@/lib/data";
+import { getManagerMap, getMergedCareerStats, getSeasons } from "@/lib/data";
 import type { MatchupFilter } from "@/lib/data";
 import { firstName } from "@/lib/format";
 import { StatTile } from "@/components/StatTile";
-import { CareerRecordsTable } from "@/components/CareerRecordsTable";
 import { MatchupCareerTable } from "@/components/MatchupCareerTable";
 import { FilterTabs } from "@/components/FilterTabs";
 
@@ -27,9 +21,8 @@ export default async function Home({ searchParams }: HomeProps) {
     type === "regular" || type === "playoffs" ? type : "all";
 
   const managerMap = getManagerMap();
-  const records = getCareerRecords();
   const seasons = getSeasons();
-  const { stats: matchupStats, seasonsCovered } = getMatchupCareerStats(filter);
+  const { stats: matchupStats, seasonsCovered } = getMergedCareerStats(filter);
 
   const completeSeasons = seasons.filter((s) => s.complete);
   const latestSeason = completeSeasons[completeSeasons.length - 1];
@@ -39,7 +32,7 @@ export default async function Home({ searchParams }: HomeProps) {
   const activeManagerCount = Array.from(managerMap.values()).filter(
     (m) => m.active
   ).length;
-  const mostTitles = [...records].sort(
+  const mostTitles = [...matchupStats].sort(
     (a, b) => b.championships - a.championships
   )[0];
 
@@ -74,29 +67,17 @@ export default async function Home({ searchParams }: HomeProps) {
         />
       </section>
 
-      <section className="flex flex-col gap-3">
-        <div>
-          <h2 className="text-sm font-medium text-text-primary">
-            Career records
-          </h2>
-          <p className="text-sm text-text-muted">
-            All-time regular season and postseason totals, 2012–2025
-          </p>
-        </div>
-        <CareerRecordsTable records={records} managerMap={managerMapObj} />
-      </section>
-
       {matchupStats.length > 0 && (
         <section className="flex flex-col gap-3">
           <div>
             <h2 className="text-sm font-medium text-text-primary">
-              Matchup stats
+              Career records
             </h2>
             <p className="text-sm text-text-muted">
               {first}
-              {last !== first ? `–${last}` : ""} only — based on week-by-week
-              matchup data entered so far. Will expand to full history as more
-              seasons are added.
+              {last !== first ? `–${last}` : ""}. W/L/Win%/points respond to
+              the filter below; Playoffs/Finals/Titles are all-time
+              appearance counts and don&apos;t change with it.
             </p>
           </div>
           <FilterTabs

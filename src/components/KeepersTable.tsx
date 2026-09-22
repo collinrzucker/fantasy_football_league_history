@@ -11,12 +11,6 @@ function rowClass(streak: number) {
   return undefined;
 }
 
-function streakNote(streak: number) {
-  if (streak >= 3) return "3rd+ year kept — cannot be kept again";
-  if (streak === 2) return "2nd year kept — one keep remaining";
-  return null;
-}
-
 export function KeepersTable({ keepers, managerMap }: KeepersTableProps) {
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
@@ -37,7 +31,6 @@ export function KeepersTable({ keepers, managerMap }: KeepersTableProps) {
         <tbody>
           {keepers.map((keeper) => {
             const manager = managerMap.get(keeper.managerId);
-            const note = streakNote(keeper.streak);
             return (
               <tr
                 key={`${keeper.managerId}-${keeper.player}`}
@@ -48,11 +41,6 @@ export function KeepersTable({ keepers, managerMap }: KeepersTableProps) {
                 </td>
                 <td className="px-4 py-2.5 text-text-primary">
                   {keeper.player}
-                  {note && (
-                    <span className="ml-2 text-xs text-text-secondary">
-                      {note}
-                    </span>
-                  )}
                 </td>
                 <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
                   {keeper.roundLost}

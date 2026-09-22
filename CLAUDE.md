@@ -32,21 +32,14 @@ data specifics.
   `npm install` first thing. Also re-check `npm audit` occasionally;
   we already had to bump Next.js once mid-project for a critical CVE.
 
-## Current data status (as of 2026-09-18)
+## Current data status (as of 2026-09-20)
 
-`data/matchups.json` (week-by-week scores, powers Head-to-Head tab +
-homepage "Matchup stats" section):
+`data/matchups.json` — **fully backfilled, 2012–2026** (regular season +
+playoffs for every completed season, validated manager-by-manager against
+`data/seasons.json`; 2026 has Week 1 only so far, add weekly as results
+come in). Powers the Head-to-Head tab and homepage Career Records table.
 
-| Years | Status |
-|---|---|
-| 2012–2015 | **Fully backfilled** (regular season + playoffs), validated |
-| 2016–2023 | **Not started** — the main remaining gap |
-| 2024–2025 | **Fully backfilled**, validated |
-| 2026 | Week 1 only (in progress, add weekly as results come in) |
-
-`data/draftOrder.json`: 2012–2015 and 2017–2025 present. **2016 is a
-gap** (skipped when we jumped from 2015 to 2017 in an earlier session —
-worth asking the user for it next time we're doing 2016's data).
+`data/draftOrder.json`: complete, 2012–2025.
 
 `data/seasons.json` and `data/keepers.json`: complete for all seasons
 already (2012–2026), these were filled in earlier in the project from
@@ -85,14 +78,28 @@ of a new season. For each screenshot:
 This process is slow but has caught zero data errors across ~400
 matchups so far — trust it, don't skip the cross-checks to go faster.
 
-## Known planned work (see data/README.md for full detail)
+## Known planned work
 
-1. **Consolidate Career Records onto matchups.json** once full history
-   is backfilled — merge the homepage's two tables into one, retire the
-   redundant win/loss fields in `seasons.json`.
-2. **Season History tab should sort by win%** for an in-progress season
-   (e.g. 2026) instead of the source sheet's placeholder order.
-3. **2016 draft order** — ask the user for it (see gap noted above).
+Running backlog of dashboard UI/data feature requests, tracked ad hoc as
+the user adds them (not in priority order — ask before starting on one if
+unclear which is next):
+
+All 9 items from the 2026-09-20 backlog are done:
+Career Records consolidation + Pythagorean win%/Luck Index, Season
+History win%-sort for in-progress seasons, Draft Order footnote removal +
+click-to-highlight + table/chart toggle, Keepers inline-text removal,
+Head-to-Head subtitle + totals column.
+
+~~"All-Time Performances" tab (Best/Stinkers, top 10 single-week scores
+with inline year/week/round/opponent context)~~ — done, added 2026-09-22.
+
+Next up (not started yet, added 2026-09-20):
+
+1. New "Championship History" tab — chronological table of championship
+   game scores, most recent first.
+2. Re-order the nav tabs to: Career Records, Season History, Championship
+   History, Head to Head, Draft Order, Keepers, Performances (exact slot
+   for Performances not yet specified by the user — ask).
 
 ## Design system
 

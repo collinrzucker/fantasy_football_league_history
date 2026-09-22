@@ -1193,7 +1193,7 @@
         "rank": 1,
         "managerId": "andy",
         "wins": 0,
-        "losses": 1,
+        "losses": 2,
         "playoffs": null,
         "championship": null
       },
@@ -1201,14 +1201,14 @@
         "rank": 2,
         "managerId": "chris",
         "wins": 1,
-        "losses": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 3,
         "managerId": "conor",
-        "wins": 1,
+        "wins": 2,
         "losses": 0,
         "playoffs": null,
         "championship": null
@@ -1216,7 +1216,7 @@
       {
         "rank": 4,
         "managerId": "collin",
-        "wins": 1,
+        "wins": 2,
         "losses": 0,
         "playoffs": null,
         "championship": null
@@ -1224,7 +1224,7 @@
       {
         "rank": 5,
         "managerId": "greg",
-        "wins": 0,
+        "wins": 1,
         "losses": 1,
         "playoffs": null,
         "championship": null
@@ -1232,7 +1232,7 @@
       {
         "rank": 6,
         "managerId": "john",
-        "wins": 0,
+        "wins": 1,
         "losses": 1,
         "playoffs": null,
         "championship": null
@@ -1241,14 +1241,14 @@
         "rank": 7,
         "managerId": "matt",
         "wins": 0,
-        "losses": 1,
+        "losses": 2,
         "playoffs": null,
         "championship": null
       },
       {
         "rank": 8,
         "managerId": "owen",
-        "wins": 1,
+        "wins": 2,
         "losses": 0,
         "playoffs": null,
         "championship": null
@@ -1257,7 +1257,7 @@
         "rank": 9,
         "managerId": "sam",
         "wins": 1,
-        "losses": 0,
+        "losses": 1,
         "playoffs": null,
         "championship": null
       },
@@ -1265,7 +1265,7 @@
         "rank": 10,
         "managerId": "steve",
         "wins": 0,
-        "losses": 1,
+        "losses": 2,
         "playoffs": null,
         "championship": null
       }

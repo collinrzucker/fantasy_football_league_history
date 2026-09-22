@@ -1,11 +1,18 @@
-import type { DraftYear, Manager } from "@/types/league";
+import type { DraftYear, Manager, ManagerId } from "@/types/league";
 
 interface DraftOrderGridProps {
   draftYears: DraftYear[];
-  managerMap: Map<string, Manager>;
+  managerMap: Record<string, Manager>;
+  selectedManagerId: ManagerId | null;
+  onSelectManager: (id: ManagerId) => void;
 }
 
-export function DraftOrderGrid({ draftYears, managerMap }: DraftOrderGridProps) {
+export function DraftOrderGrid({
+  draftYears,
+  managerMap,
+  selectedManagerId,
+  onSelectManager,
+}: DraftOrderGridProps) {
   const years = draftYears.map((d) => d.year);
   const pickCount = Math.max(...draftYears.map((d) => d.order.length));
   const picks = Array.from({ length: pickCount }, (_, i) => i + 1);
@@ -37,10 +44,29 @@ export function DraftOrderGrid({ draftYears, managerMap }: DraftOrderGridProps) 
               </td>
               {draftYears.map((draftYear) => {
                 const entry = draftYear.order.find((o) => o.pick === pick);
-                const manager = entry ? managerMap.get(entry.managerId) : undefined;
+                const manager = entry ? managerMap[entry.managerId] : undefined;
+                const isSelected =
+                  entry !== undefined && entry.managerId === selectedManagerId;
                 return (
-                  <td key={draftYear.year} className="px-4 py-2.5 text-text-primary">
-                    {manager?.fullName.split(" ")[0] ?? "—"}
+                  <td
+                    key={draftYear.year}
+                    className={`px-4 py-2.5 text-text-primary ${
+                      isSelected ? "bg-seq-450/15 font-semibold" : ""
+                    }`}
+                  >
+                    {entry ? (
+                      <button
+                        type="button"
+                        onClick={() => onSelectManager(entry.managerId)}
+                        className={`rounded hover:text-seq-450 hover:underline ${
+                          isSelected ? "text-seq-500" : ""
+                        }`}
+                      >
+                        {manager?.fullName.split(" ")[0] ?? "—"}
+                      </button>
+                    ) : (
+                      "—"
+                    )}
                   </td>
                 );
               })}

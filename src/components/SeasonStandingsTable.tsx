@@ -5,10 +5,19 @@ interface SeasonStandingsTableProps {
   managerMap: Map<string, Manager>;
 }
 
+function winPct(standing: Season["standings"][number]) {
+  const games = (standing.wins ?? 0) + (standing.losses ?? 0);
+  return games > 0 ? (standing.wins ?? 0) / games : 0;
+}
+
 export function SeasonStandingsTable({
   season,
   managerMap,
 }: SeasonStandingsTableProps) {
+  const standings = season.complete
+    ? season.standings
+    : [...season.standings].sort((a, b) => winPct(b) - winPct(a));
+
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
       <table className="w-full min-w-[420px] border-collapse text-sm">
@@ -32,7 +41,7 @@ export function SeasonStandingsTable({
           </tr>
         </thead>
         <tbody>
-          {season.standings.map((standing, i) => {
+          {standings.map((standing, i) => {
             const manager = managerMap.get(standing.managerId);
             const games = (standing.wins ?? 0) + (standing.losses ?? 0);
             const pct = games > 0 ? ((standing.wins ?? 0) / games) * 100 : null;

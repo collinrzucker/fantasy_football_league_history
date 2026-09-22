@@ -6,10 +6,10 @@ import type {
   KeeperYear,
   DraftYear,
   DraftAverage,
-  CareerRecord,
   ManagerId,
   KeeperWithStreak,
   Matchup,
+  MatchupType,
 } from "@/types/league";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -238,43 +238,123 @@ export function getMatchupCareerStats(
   return { stats, seasonsCovered: [...seasonsCovered].sort((a, b) => a - b) };
 }
 
-export function getCareerRecords(): CareerRecord[] {
+/** Pythagorean-expectation exponent. Fantasy matchups run tighter/higher
+ * scoring than real NFL games, so this is well above the standard NFL
+ * value of ~2.37. */
+const PYTHAG_EXPONENT = 5;
+
+export interface MergedCareerStat {
+  managerId: ManagerId;
+  wins: number;
+  losses: number;
+  games: number;
+  winPct: number;
+  avgPointsFor: number;
+  avgPointsAgainst: number;
+  expectedWinPct: number;
+  luckIndex: number;
+  playoffApps: number;
+  championshipApps: number;
+  championships: number;
+}
+
+/**
+ * Career records combining filter-responsive W/L/points (from
+ * matchups.json) with static Playoffs/Finals/Titles appearance counts
+ * (from seasons.json, unaffected by the regular/playoffs/all filter).
+ */
+export function getMergedCareerStats(
+  filter: MatchupFilter = "all"
+): { stats: MergedCareerStat[]; seasonsCovered: number[] } {
+  const { stats: matchupStats, seasonsCovered } = getMatchupCareerStats(filter);
   const managers = getManagers();
   const seasons = getSeasons().filter((s) => s.complete);
 
-  return managers
-    .map((manager) => {
-      let wins = 0;
-      let losses = 0;
-      let playoffApps = 0;
-      let championshipApps = 0;
-      let championships = 0;
+  const appearances = new Map<
+    ManagerId,
+    { playoffApps: number; championshipApps: number; championships: number }
+  >();
+  for (const manager of managers) {
+    let playoffApps = 0;
+    let championshipApps = 0;
+    let championships = 0;
+    for (const season of seasons) {
+      const standing = season.standings.find(
+        (s) => s.managerId === manager.id
+      );
+      if (!standing) continue;
+      if (standing.playoffs) playoffApps += 1;
+      if (standing.championship) championshipApps += 1;
+      if (season.champion === manager.id) championships += 1;
+    }
+    appearances.set(manager.id, {
+      playoffApps,
+      championshipApps,
+      championships,
+    });
+  }
 
-      for (const season of seasons) {
-        const standing = season.standings.find(
-          (s) => s.managerId === manager.id
-        );
-        if (!standing) continue;
+  const stats: MergedCareerStat[] = matchupStats.map((s) => {
+    const pf = s.avgPointsFor ** PYTHAG_EXPONENT;
+    const pa = s.avgPointsAgainst ** PYTHAG_EXPONENT;
+    const expectedWinPct = pf + pa > 0 ? pf / (pf + pa) : 0;
+    const apps = appearances.get(s.managerId) ?? {
+      playoffApps: 0,
+      championshipApps: 0,
+      championships: 0,
+    };
+    return {
+      ...s,
+      expectedWinPct,
+      luckIndex: s.winPct - expectedWinPct,
+      ...apps,
+    };
+  });
+  stats.sort((a, b) => b.wins - a.wins);
 
-        wins += standing.wins ?? 0;
-        losses += standing.losses ?? 0;
-        if (standing.playoffs) playoffApps += 1;
-        if (standing.championship) championshipApps += 1;
-        if (season.champion === manager.id) championships += 1;
-      }
+  return { stats, seasonsCovered };
+}
 
-      const games = wins + losses;
-      return {
-        managerId: manager.id,
-        wins,
-        losses,
-        games,
-        winPct: games > 0 ? wins / games : 0,
-        playoffApps,
-        championshipApps,
-        championships,
-      };
-    })
-    .filter((record) => record.games > 0)
-    .sort((a, b) => b.wins - a.wins);
+export interface ScorePerformance {
+  managerId: ManagerId;
+  score: number;
+  year: number;
+  week: number;
+  type: MatchupType;
+  opponentId: ManagerId;
+  opponentScore: number;
+}
+
+/** Best and worst single-week scores across all matchups (regular + playoffs). */
+export function getExtremeScores(
+  limit = 10
+): { best: ScorePerformance[]; worst: ScorePerformance[] } {
+  const matchups = getMatchups();
+  const entries: ScorePerformance[] = [];
+
+  for (const m of matchups) {
+    entries.push({
+      managerId: m.home,
+      score: m.homeScore,
+      year: m.year,
+      week: m.week,
+      type: m.type,
+      opponentId: m.away,
+      opponentScore: m.awayScore,
+    });
+    entries.push({
+      managerId: m.away,
+      score: m.awayScore,
+      year: m.year,
+      week: m.week,
+      type: m.type,
+      opponentId: m.home,
+      opponentScore: m.homeScore,
+    });
+  }
+
+  const best = [...entries].sort((a, b) => b.score - a.score).slice(0, limit);
+  const worst = [...entries].sort((a, b) => a.score - b.score).slice(0, limit);
+
+  return { best, worst };
 }

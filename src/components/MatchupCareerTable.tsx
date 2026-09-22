@@ -2,10 +2,10 @@
 
 import { useMemo, useState } from "react";
 import type { Manager } from "@/types/league";
-import type { MatchupCareerStat } from "@/lib/data";
+import type { MergedCareerStat } from "@/lib/data";
 
 interface MatchupCareerTableProps {
-  stats: MatchupCareerStat[];
+  stats: MergedCareerStat[];
   managerMap: Record<string, Manager>;
 }
 
@@ -15,7 +15,12 @@ type SortKey =
   | "losses"
   | "winPct"
   | "avgPointsFor"
-  | "avgPointsAgainst";
+  | "avgPointsAgainst"
+  | "expectedWinPct"
+  | "luckIndex"
+  | "playoffApps"
+  | "championshipApps"
+  | "championships";
 
 const COLUMNS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "manager", label: "Manager" },
@@ -24,6 +29,11 @@ const COLUMNS: { key: SortKey; label: string; align?: "right" }[] = [
   { key: "winPct", label: "Win%", align: "right" },
   { key: "avgPointsFor", label: "Avg For", align: "right" },
   { key: "avgPointsAgainst", label: "Avg Against", align: "right" },
+  { key: "expectedWinPct", label: "Expected Win%", align: "right" },
+  { key: "luckIndex", label: "Luck Index", align: "right" },
+  { key: "playoffApps", label: "Playoffs", align: "right" },
+  { key: "championshipApps", label: "Finals", align: "right" },
+  { key: "championships", label: "Titles", align: "right" },
 ];
 
 export function MatchupCareerTable({
@@ -60,7 +70,7 @@ export function MatchupCareerTable({
 
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
-      <table className="w-full min-w-[560px] border-collapse text-sm">
+      <table className="w-full min-w-[880px] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border">
             {COLUMNS.map((col) => (
@@ -112,6 +122,30 @@ export function MatchupCareerTable({
               </td>
               <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
                 {row.avgPointsAgainst.toFixed(1)}
+              </td>
+              <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                {(row.expectedWinPct * 100).toFixed(1)}%
+              </td>
+              <td
+                className={`px-4 py-2.5 text-right tabular-nums ${
+                  row.luckIndex > 0
+                    ? "text-status-good"
+                    : row.luckIndex < 0
+                      ? "text-status-critical"
+                      : "text-text-secondary"
+                }`}
+              >
+                {row.luckIndex >= 0 ? "+" : ""}
+                {(row.luckIndex * 100).toFixed(1)}%
+              </td>
+              <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                {row.playoffApps}
+              </td>
+              <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                {row.championshipApps}
+              </td>
+              <td className="px-4 py-2.5 text-right tabular-nums text-text-primary">
+                {row.championships}
               </td>
             </tr>
           ))}
