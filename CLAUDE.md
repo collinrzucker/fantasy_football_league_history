@@ -90,12 +90,16 @@ History win%-sort for in-progress seasons, Draft Order footnote removal +
 click-to-highlight + table/chart toggle, Keepers inline-text removal,
 Head-to-Head subtitle + totals column.
 
+~~"All-Time Performances" tab (Best/Stinkers, top 10 single-week scores
+with inline year/week/round/opponent context)~~ — done, added 2026-09-22.
+
 Next up (not started yet, added 2026-09-20):
 
 1. New "Championship History" tab — chronological table of championship
    game scores, most recent first.
 2. Re-order the nav tabs to: Career Records, Season History, Championship
-   History, Head to Head, Draft Order, Keepers.
+   History, Head to Head, Draft Order, Keepers, Performances (exact slot
+   for Performances not yet specified by the user — ask).
 
 ## Design system
 
