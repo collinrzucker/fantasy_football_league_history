@@ -9,6 +9,7 @@ import type {
   ManagerId,
   KeeperWithStreak,
   Matchup,
+  MatchupType,
 } from "@/types/league";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -312,4 +313,48 @@ export function getMergedCareerStats(
   stats.sort((a, b) => b.wins - a.wins);
 
   return { stats, seasonsCovered };
+}
+
+export interface ScorePerformance {
+  managerId: ManagerId;
+  score: number;
+  year: number;
+  week: number;
+  type: MatchupType;
+  opponentId: ManagerId;
+  opponentScore: number;
+}
+
+/** Best and worst single-week scores across all matchups (regular + playoffs). */
+export function getExtremeScores(
+  limit = 10
+): { best: ScorePerformance[]; worst: ScorePerformance[] } {
+  const matchups = getMatchups();
+  const entries: ScorePerformance[] = [];
+
+  for (const m of matchups) {
+    entries.push({
+      managerId: m.home,
+      score: m.homeScore,
+      year: m.year,
+      week: m.week,
+      type: m.type,
+      opponentId: m.away,
+      opponentScore: m.awayScore,
+    });
+    entries.push({
+      managerId: m.away,
+      score: m.awayScore,
+      year: m.year,
+      week: m.week,
+      type: m.type,
+      opponentId: m.home,
+      opponentScore: m.homeScore,
+    });
+  }
+
+  const best = [...entries].sort((a, b) => b.score - a.score).slice(0, limit);
+  const worst = [...entries].sort((a, b) => a.score - b.score).slice(0, limit);
+
+  return { best, worst };
 }
