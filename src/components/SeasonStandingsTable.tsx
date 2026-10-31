@@ -10,10 +10,31 @@ function winPct(standing: Season["standings"][number]) {
   return games > 0 ? (standing.wins ?? 0) / games : 0;
 }
 
+/** Standard competition ("1224") ranking: ties share a rank, the next
+ * distinct value resumes at that many spots down (not the next integer). */
+function computeRanks(
+  standings: Season["standings"]
+): Map<string, number> {
+  const sorted = [...standings].sort((a, b) => winPct(b) - winPct(a));
+  const ranks = new Map<string, number>();
+  let rank = 0;
+  let previousPct: number | null = null;
+  sorted.forEach((standing, i) => {
+    const pct = winPct(standing);
+    if (previousPct === null || pct !== previousPct) {
+      rank = i + 1;
+      previousPct = pct;
+    }
+    ranks.set(standing.managerId, rank);
+  });
+  return ranks;
+}
+
 export function SeasonStandingsTable({
   season,
   managerMap,
 }: SeasonStandingsTableProps) {
+  const ranks = season.complete ? null : computeRanks(season.standings);
   const standings = season.complete
     ? season.standings
     : [...season.standings].sort((a, b) => winPct(b) - winPct(a));
@@ -51,7 +72,7 @@ export function SeasonStandingsTable({
                 className={i % 2 === 1 ? "bg-page/40" : undefined}
               >
                 <td className="px-4 py-2.5 text-text-secondary tabular-nums">
-                  {standing.rank}
+                  {ranks ? ranks.get(standing.managerId) : standing.rank}
                 </td>
                 <td
                   className={`px-4 py-2.5 text-text-primary ${
