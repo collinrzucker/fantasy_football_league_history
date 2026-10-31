@@ -358,3 +358,42 @@ export function getExtremeScores(
 
   return { best, worst };
 }
+
+export interface ChampionshipResult {
+  year: number;
+  championId: ManagerId;
+  championScore: number;
+  runnerUpId: ManagerId;
+  runnerUpScore: number;
+}
+
+/** Champion vs. runner-up score for each completed season's championship game, most recent first. */
+export function getChampionshipHistory(): ChampionshipResult[] {
+  const seasons = getSeasons().filter(
+    (s) => s.complete && s.champion && s.runnerUp
+  );
+  const championships = getMatchups().filter((m) => m.type === "championship");
+
+  const results: ChampionshipResult[] = [];
+  for (const season of seasons) {
+    const game = championships.find((m) => m.year === season.year);
+    if (!game) continue;
+
+    const championId = season.champion!;
+    const runnerUpId = season.runnerUp!;
+    const championScore =
+      game.home === championId ? game.homeScore : game.awayScore;
+    const runnerUpScore =
+      game.home === runnerUpId ? game.homeScore : game.awayScore;
+
+    results.push({
+      year: season.year,
+      championId,
+      championScore,
+      runnerUpId,
+      runnerUpScore,
+    });
+  }
+
+  return results.sort((a, b) => b.year - a.year);
+}
