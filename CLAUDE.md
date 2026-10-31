@@ -99,13 +99,11 @@ Runner-Up, Runner-Up Score — no extra columns, confirmed with the
 user)~~ — done, added 2026-10-31. Slotted into the nav right after
 Season History.
 
-Next up (not started yet, added 2026-09-20):
+~~Re-order nav tabs: Career Records, Season History, Championship
+History, Head to Head, Single-Week Performances (renamed from
+"Performances"), Draft Order, Keepers~~ — done, added 2026-10-31.
 
-1. Re-order the nav tabs to the user's full intended order: Career
-   Records, Season History, Championship History, Head to Head, Draft
-   Order, Keepers, Performances (exact slot for Performances not yet
-   specified by the user — ask). Championship History is already
-   correctly placed; the rest of the nav is still in its old order.
+No items currently pending — ask the user before assuming what's next.
 
 ## Design system
 
