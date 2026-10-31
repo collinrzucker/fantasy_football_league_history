@@ -1,8 +1,10 @@
 import type { Manager, Season } from "@/types/league";
+import type { SeasonPythagStat } from "@/lib/data";
 
 interface SeasonStandingsTableProps {
   season: Season;
   managerMap: Map<string, Manager>;
+  pythagStats: Map<string, SeasonPythagStat>;
 }
 
 function winPct(standing: Season["standings"][number]) {
@@ -33,6 +35,7 @@ function computeRanks(
 export function SeasonStandingsTable({
   season,
   managerMap,
+  pythagStats,
 }: SeasonStandingsTableProps) {
   const ranks = season.complete ? null : computeRanks(season.standings);
   const standings = season.complete
@@ -41,7 +44,7 @@ export function SeasonStandingsTable({
 
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
-      <table className="w-full min-w-[420px] border-collapse text-sm">
+      <table className="w-full min-w-[640px] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border">
             <th scope="col" className="px-4 py-3 text-left font-medium text-text-muted">
@@ -59,6 +62,12 @@ export function SeasonStandingsTable({
             <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
               Win%
             </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              Expected Win%
+            </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              Luck Index
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +75,7 @@ export function SeasonStandingsTable({
             const manager = managerMap.get(standing.managerId);
             const games = (standing.wins ?? 0) + (standing.losses ?? 0);
             const pct = games > 0 ? ((standing.wins ?? 0) / games) * 100 : null;
+            const pythag = pythagStats.get(standing.managerId);
             return (
               <tr
                 key={standing.managerId}
@@ -100,6 +110,24 @@ export function SeasonStandingsTable({
                 </td>
                 <td className="px-4 py-2.5 text-right tabular-nums text-text-primary">
                   {pct !== null ? `${pct.toFixed(1)}%` : "—"}
+                </td>
+                <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                  {pythag ? `${(pythag.expectedWinPct * 100).toFixed(1)}%` : "—"}
+                </td>
+                <td
+                  className={`px-4 py-2.5 text-right tabular-nums ${
+                    !pythag
+                      ? "text-text-secondary"
+                      : pythag.luckIndex > 0
+                        ? "text-status-good"
+                        : pythag.luckIndex < 0
+                          ? "text-status-critical"
+                          : "text-text-secondary"
+                  }`}
+                >
+                  {pythag
+                    ? `${pythag.luckIndex >= 0 ? "+" : ""}${(pythag.luckIndex * 100).toFixed(1)}%`
+                    : "—"}
                 </td>
               </tr>
             );

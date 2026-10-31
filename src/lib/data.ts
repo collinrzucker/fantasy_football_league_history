@@ -397,3 +397,77 @@ export function getChampionshipHistory(): ChampionshipResult[] {
 
   return results.sort((a, b) => b.year - a.year);
 }
+
+export interface SeasonPythagStat {
+  managerId: ManagerId;
+  wins: number;
+  losses: number;
+  winPct: number;
+  avgPointsFor: number;
+  avgPointsAgainst: number;
+  expectedWinPct: number;
+  luckIndex: number;
+}
+
+/** Pythagorean expected win% + Luck Index for one season's regular season,
+ * same formula/exponent as the career records table. */
+export function getSeasonPythagStats(
+  year: number
+): Map<ManagerId, SeasonPythagStat> {
+  const matchups = getMatchups().filter(
+    (m) => m.year === year && m.type === "regular"
+  );
+
+  const totals = new Map<
+    ManagerId,
+    { wins: number; losses: number; pointsFor: number; pointsAgainst: number }
+  >();
+
+  function get(id: ManagerId) {
+    let t = totals.get(id);
+    if (!t) {
+      t = { wins: 0, losses: 0, pointsFor: 0, pointsAgainst: 0 };
+      totals.set(id, t);
+    }
+    return t;
+  }
+
+  for (const m of matchups) {
+    const home = get(m.home);
+    const away = get(m.away);
+    home.pointsFor += m.homeScore;
+    home.pointsAgainst += m.awayScore;
+    away.pointsFor += m.awayScore;
+    away.pointsAgainst += m.homeScore;
+    if (m.homeScore > m.awayScore) {
+      home.wins += 1;
+      away.losses += 1;
+    } else {
+      away.wins += 1;
+      home.losses += 1;
+    }
+  }
+
+  const stats = new Map<ManagerId, SeasonPythagStat>();
+  for (const [managerId, t] of totals.entries()) {
+    const games = t.wins + t.losses;
+    const avgPointsFor = games > 0 ? t.pointsFor / games : 0;
+    const avgPointsAgainst = games > 0 ? t.pointsAgainst / games : 0;
+    const winPct = games > 0 ? t.wins / games : 0;
+    const pf = avgPointsFor ** PYTHAG_EXPONENT;
+    const pa = avgPointsAgainst ** PYTHAG_EXPONENT;
+    const expectedWinPct = pf + pa > 0 ? pf / (pf + pa) : 0;
+    stats.set(managerId, {
+      managerId,
+      wins: t.wins,
+      losses: t.losses,
+      winPct,
+      avgPointsFor,
+      avgPointsAgainst,
+      expectedWinPct,
+      luckIndex: winPct - expectedWinPct,
+    });
+  }
+
+  return stats;
+}
