@@ -7,10 +7,10 @@ const TABS = [
   { href: "/", label: "Career Records" },
   { href: "/seasons", label: "Season History" },
   { href: "/championships", label: "Championship History" },
+  { href: "/head-to-head", label: "Head-to-Head" },
+  { href: "/performances", label: "Single-Week Performances" },
   { href: "/draft", label: "Draft Order" },
   { href: "/keepers", label: "Keepers" },
-  { href: "/head-to-head", label: "Head-to-Head" },
-  { href: "/performances", label: "Performances" },
 ];
 
 export function TabNav() {
