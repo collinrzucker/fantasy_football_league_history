@@ -1,4 +1,4 @@
-import { getManagerMap, getSeasons } from "@/lib/data";
+import { getManagerMap, getSeasonPythagStats, getSeasons } from "@/lib/data";
 import { YearTabs } from "@/components/YearTabs";
 import { SeasonStandingsTable } from "@/components/SeasonStandingsTable";
 
@@ -44,7 +44,11 @@ export default async function SeasonsPage({ searchParams }: SeasonsPageProps) {
                 {season.year}
               </h3>
             )}
-            <SeasonStandingsTable season={season} managerMap={managerMap} />
+            <SeasonStandingsTable
+              season={season}
+              managerMap={managerMap}
+              pythagStats={getSeasonPythagStats(season.year)}
+            />
           </div>
         ))}
       </div>

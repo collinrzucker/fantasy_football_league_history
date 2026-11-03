@@ -25,7 +25,7 @@ export default async function PerformancesPage({
     <div className="flex flex-col gap-4">
       <div>
         <h2 className="text-sm font-medium text-text-primary">
-          All-time performances
+          Single-week performances
         </h2>
         <p className="text-sm text-text-muted">
           {activeView === "worst"

@@ -1,8 +1,10 @@
 import type { Manager, Season } from "@/types/league";
+import type { SeasonPythagStat } from "@/lib/data";
 
 interface SeasonStandingsTableProps {
   season: Season;
   managerMap: Map<string, Manager>;
+  pythagStats: Map<string, SeasonPythagStat>;
 }
 
 function winPct(standing: Season["standings"][number]) {
@@ -10,17 +12,39 @@ function winPct(standing: Season["standings"][number]) {
   return games > 0 ? (standing.wins ?? 0) / games : 0;
 }
 
+/** Standard competition ("1224") ranking: ties share a rank, the next
+ * distinct value resumes at that many spots down (not the next integer). */
+function computeRanks(
+  standings: Season["standings"]
+): Map<string, number> {
+  const sorted = [...standings].sort((a, b) => winPct(b) - winPct(a));
+  const ranks = new Map<string, number>();
+  let rank = 0;
+  let previousPct: number | null = null;
+  sorted.forEach((standing, i) => {
+    const pct = winPct(standing);
+    if (previousPct === null || pct !== previousPct) {
+      rank = i + 1;
+      previousPct = pct;
+    }
+    ranks.set(standing.managerId, rank);
+  });
+  return ranks;
+}
+
 export function SeasonStandingsTable({
   season,
   managerMap,
+  pythagStats,
 }: SeasonStandingsTableProps) {
+  const ranks = season.complete ? null : computeRanks(season.standings);
   const standings = season.complete
     ? season.standings
     : [...season.standings].sort((a, b) => winPct(b) - winPct(a));
 
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
-      <table className="w-full min-w-[420px] border-collapse text-sm">
+      <table className="w-full min-w-[640px] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border">
             <th scope="col" className="px-4 py-3 text-left font-medium text-text-muted">
@@ -38,6 +62,12 @@ export function SeasonStandingsTable({
             <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
               Win%
             </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              Expected Win%
+            </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              Luck Index
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -45,13 +75,14 @@ export function SeasonStandingsTable({
             const manager = managerMap.get(standing.managerId);
             const games = (standing.wins ?? 0) + (standing.losses ?? 0);
             const pct = games > 0 ? ((standing.wins ?? 0) / games) * 100 : null;
+            const pythag = pythagStats.get(standing.managerId);
             return (
               <tr
                 key={standing.managerId}
                 className={i % 2 === 1 ? "bg-page/40" : undefined}
               >
                 <td className="px-4 py-2.5 text-text-secondary tabular-nums">
-                  {standing.rank}
+                  {ranks ? ranks.get(standing.managerId) : standing.rank}
                 </td>
                 <td
                   className={`px-4 py-2.5 text-text-primary ${
@@ -79,6 +110,24 @@ export function SeasonStandingsTable({
                 </td>
                 <td className="px-4 py-2.5 text-right tabular-nums text-text-primary">
                   {pct !== null ? `${pct.toFixed(1)}%` : "—"}
+                </td>
+                <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                  {pythag ? `${(pythag.expectedWinPct * 100).toFixed(1)}%` : "—"}
+                </td>
+                <td
+                  className={`px-4 py-2.5 text-right tabular-nums ${
+                    !pythag
+                      ? "text-text-secondary"
+                      : pythag.luckIndex > 0
+                        ? "text-status-good"
+                        : pythag.luckIndex < 0
+                          ? "text-status-critical"
+                          : "text-text-secondary"
+                  }`}
+                >
+                  {pythag
+                    ? `${pythag.luckIndex >= 0 ? "+" : ""}${(pythag.luckIndex * 100).toFixed(1)}%`
+                    : "—"}
                 </td>
               </tr>
             );

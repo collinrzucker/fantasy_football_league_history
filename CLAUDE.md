@@ -93,13 +93,17 @@ Head-to-Head subtitle + totals column.
 ~~"All-Time Performances" tab (Best/Stinkers, top 10 single-week scores
 with inline year/week/round/opponent context)~~ — done, added 2026-09-22.
 
-Next up (not started yet, added 2026-09-20):
+~~New "Championship History" tab — chronological table of championship
+game scores, most recent first (Season, Champion, Champion Score,
+Runner-Up, Runner-Up Score — no extra columns, confirmed with the
+user)~~ — done, added 2026-10-31. Slotted into the nav right after
+Season History.
 
-1. New "Championship History" tab — chronological table of championship
-   game scores, most recent first.
-2. Re-order the nav tabs to: Career Records, Season History, Championship
-   History, Head to Head, Draft Order, Keepers, Performances (exact slot
-   for Performances not yet specified by the user — ask).
+~~Re-order nav tabs: Career Records, Season History, Championship
+History, Head to Head, Single-Week Performances (renamed from
+"Performances"), Draft Order, Keepers~~ — done, added 2026-10-31.
+
+No items currently pending — ask the user before assuming what's next.
 
 ## Design system
 
