@@ -6,6 +6,21 @@ interface ChampionshipHistoryTableProps {
   managerMap: Record<string, Manager>;
 }
 
+function ordinalSuffix(n: number): string {
+  const mod100 = n % 100;
+  if (mod100 >= 11 && mod100 <= 13) return "th";
+  switch (n % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+}
+
 export function ChampionshipHistoryTable({
   championships,
   managerMap,
@@ -40,8 +55,12 @@ export function ChampionshipHistoryTable({
               </td>
               <td className="px-4 py-2.5 font-medium text-text-primary">
                 {managerMap[c.championId]?.fullName ?? c.championId}
-                <span className="ml-1.5 text-xs" aria-label="Champion">
-                  🏆
+                <span
+                  className="ml-1.5 text-xs"
+                  aria-label={`${c.titleNumber} title${c.titleNumber === 1 ? "" : "s"}`}
+                  title={`${c.titleNumber}${ordinalSuffix(c.titleNumber)} title`}
+                >
+                  {"🏆".repeat(c.titleNumber)}
                 </span>
               </td>
               <td className="px-4 py-2.5 text-right tabular-nums font-medium text-text-primary">
