@@ -403,6 +403,8 @@ export interface SeasonPythagStat {
   wins: number;
   losses: number;
   winPct: number;
+  pointsFor: number;
+  pointsAgainst: number;
   avgPointsFor: number;
   avgPointsAgainst: number;
   expectedWinPct: number;
@@ -462,6 +464,8 @@ export function getSeasonPythagStats(
       wins: t.wins,
       losses: t.losses,
       winPct,
+      pointsFor: t.pointsFor,
+      pointsAgainst: t.pointsAgainst,
       avgPointsFor,
       avgPointsAgainst,
       expectedWinPct,

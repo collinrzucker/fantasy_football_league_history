@@ -44,7 +44,7 @@ export function SeasonStandingsTable({
 
   return (
     <div className="overflow-x-auto rounded-lg border border-border bg-surface-1">
-      <table className="w-full min-w-[640px] border-collapse text-sm">
+      <table className="w-full min-w-[760px] border-collapse text-sm">
         <thead>
           <tr className="border-b border-border">
             <th scope="col" className="px-4 py-3 text-left font-medium text-text-muted">
@@ -58,6 +58,12 @@ export function SeasonStandingsTable({
             </th>
             <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
               L
+            </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              PF
+            </th>
+            <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
+              PA
             </th>
             <th scope="col" className="px-4 py-3 text-right font-medium text-text-muted">
               Win%
@@ -107,6 +113,12 @@ export function SeasonStandingsTable({
                 </td>
                 <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
                   {standing.losses ?? "—"}
+                </td>
+                <td className="px-4 py-2.5 text-right tabular-nums text-text-primary">
+                  {pythag ? pythag.pointsFor.toFixed(1) : "—"}
+                </td>
+                <td className="px-4 py-2.5 text-right tabular-nums text-text-secondary">
+                  {pythag ? pythag.pointsAgainst.toFixed(1) : "—"}
                 </td>
                 <td className="px-4 py-2.5 text-right tabular-nums text-text-primary">
                   {pct !== null ? `${pct.toFixed(1)}%` : "—"}
