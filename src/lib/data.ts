@@ -365,6 +365,8 @@ export interface ChampionshipResult {
   championScore: number;
   runnerUpId: ManagerId;
   runnerUpScore: number;
+  /** How many titles this manager had won, counting this one (1 = first title). */
+  titleNumber: number;
 }
 
 /** Champion vs. runner-up score for each completed season's championship game, most recent first. */
@@ -375,6 +377,7 @@ export function getChampionshipHistory(): ChampionshipResult[] {
   const championships = getMatchups().filter((m) => m.type === "championship");
 
   const results: ChampionshipResult[] = [];
+  const titleCounts = new Map<ManagerId, number>();
   for (const season of seasons) {
     const game = championships.find((m) => m.year === season.year);
     if (!game) continue;
@@ -385,6 +388,8 @@ export function getChampionshipHistory(): ChampionshipResult[] {
       game.home === championId ? game.homeScore : game.awayScore;
     const runnerUpScore =
       game.home === runnerUpId ? game.homeScore : game.awayScore;
+    const titleNumber = (titleCounts.get(championId) ?? 0) + 1;
+    titleCounts.set(championId, titleNumber);
 
     results.push({
       year: season.year,
@@ -392,6 +397,7 @@ export function getChampionshipHistory(): ChampionshipResult[] {
       championScore,
       runnerUpId,
       runnerUpScore,
+      titleNumber,
     });
   }
 
@@ -403,6 +409,8 @@ export interface SeasonPythagStat {
   wins: number;
   losses: number;
   winPct: number;
+  pointsFor: number;
+  pointsAgainst: number;
   avgPointsFor: number;
   avgPointsAgainst: number;
   expectedWinPct: number;
@@ -462,6 +470,8 @@ export function getSeasonPythagStats(
       wins: t.wins,
       losses: t.losses,
       winPct,
+      pointsFor: t.pointsFor,
+      pointsAgainst: t.pointsAgainst,
       avgPointsFor,
       avgPointsAgainst,
       expectedWinPct,
