@@ -9070,5 +9070,50 @@
     "homeScore": 118.76,
     "away": "john",
     "awayScore": 112.86
+  },
+  {
+    "year": 2026,
+    "week": 9,
+    "type": "regular",
+    "home": "matt",
+    "homeScore": 129.68,
+    "away": "collin",
+    "awayScore": 93.66
+  },
+  {
+    "year": 2026,
+    "week": 9,
+    "type": "regular",
+    "home": "greg",
+    "homeScore": 127.26,
+    "away": "conor",
+    "awayScore": 126.38
+  },
+  {
+    "year": 2026,
+    "week": 9,
+    "type": "regular",
+    "home": "sam",
+    "homeScore": 135.3,
+    "away": "owen",
+    "awayScore": 114.5
+  },
+  {
+    "year": 2026,
+    "week": 9,
+    "type": "regular",
+    "home": "steve",
+    "homeScore": 137.82,
+    "away": "andy",
+    "awayScore": 107.24
+  },
+  {
+    "year": 2026,
+    "week": 9,
+    "type": "regular",
+    "home": "john",
+    "homeScore": 161.18,
+    "away": "chris",
+    "awayScore": 136.2
   }
 ]
